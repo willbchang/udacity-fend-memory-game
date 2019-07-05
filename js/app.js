@@ -1,4 +1,4 @@
-// Get cards' classes and store as an array
+// Get cards' classes and return as an array
 function cards() {
      var cards = [];
      $('.card i').each(function() {
