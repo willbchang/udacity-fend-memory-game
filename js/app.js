@@ -1,15 +1,11 @@
-/* 
- * Get cards' classes and store as an array
- *   - get all classes and push them to cards array
- *   - remove 'fa ' from each string item in cards
- */
+// Get cards' classes and store as an array
 function cards() {
      var cards = [];
      $('.card i').each(function() {
         cards.push($(this).attr('class'));
     });
     
-    return cards.map(x => x.replace('fa ', ''));
+    return cards;
  }
 
 /*
