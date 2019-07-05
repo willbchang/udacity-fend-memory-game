@@ -14,6 +14,20 @@ function cards() {
  *   - add each card's HTML to the page
  */
 
+function display() {
+    const shuffledCards = shuffle(cards());
+    var index = 0;
+    var oldClass;
+    var newClass;
+
+    $('.card i[class^="fa"]').each(function() {
+        oldClass = $(this).attr('class');
+        newClass = shuffledCards[index];
+        $(this).removeClass(oldClass).addClass(newClass);
+        index += 1;
+    });
+}
+
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
