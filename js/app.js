@@ -1,7 +1,11 @@
-/*
- * Create a list that holds all of your cards
- */
-
+function cards() {
+     var cards = [];
+     $('.card i').each(function() {
+        cards.push($(this).attr('class'));
+    });
+    
+    return cards.map(x => x.replace('fa ', ''));
+ }
 
 /*
  * Display the cards on the page
