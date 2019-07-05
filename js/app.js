@@ -1,3 +1,8 @@
+/* 
+ * Get cards' classes and store as an array
+ *   - get all classes and push them to cards array
+ *   - remove 'fa ' from each string item in cards
+ */
 function cards() {
      var cards = [];
      $('.card i').each(function() {
@@ -8,10 +13,9 @@ function cards() {
  }
 
 /*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
+ * Display the shuffled cards on the page
+ *   - shuffle the list of cards with "shuffle()"
+ *   - loop through each card and change its class with shuffled one.
  */
 
 function display() {
