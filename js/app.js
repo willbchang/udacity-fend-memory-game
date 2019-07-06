@@ -43,6 +43,19 @@ function matched() {
   pairing = [];
 }
 
+/* 
+ * hide unmatched cards and empty pairing[]
+ * give time to memorize cards' position
+ */
+function unmatched() {
+  setTimeout(() => {
+    for (const card of pairing) {
+      card.removeClass('open show');
+    }
+    pairing = [];
+  }, 1500);
+}
+
 // Get cards' classes and return as an array
 function cards() {
   var cards = [];
