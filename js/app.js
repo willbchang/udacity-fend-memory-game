@@ -31,7 +31,7 @@ function show(card) {
   if (pairing.length <= 2) {
     card.addClass('open show');
   }
-};
+}
 
 function hide(cards) {
   for (const card of cards) {
@@ -44,7 +44,7 @@ Array.prototype.put = function (card) {
   if (!card.is(this[0])) {
     this.push(card);
   }
-}
+};
 
 /**
  * Check if a card is in paired[]
@@ -61,7 +61,7 @@ Array.prototype.has = function (card) {
   }
 
   return false;
-}
+};
 
 /**
  * Returns a boolean by compare two jQuery Object 
@@ -71,7 +71,7 @@ Array.prototype.has = function (card) {
  */
 function isMatch(a, b) {
   return a[0].isEqualNode(b[0]);
-};
+}
 
 /*
  * Store matched cards to paired[] and reset pairing[];
