@@ -18,6 +18,15 @@ $('.deck').on('click', 'li', function () {
   }
 });
 
+$('.restart').click(function() {
+  $('.card').each(function() {
+    $(this).removeClass('open show');
+  });
+  init();
+  count = 0
+  $('.moves').text(count);
+});
+
 function open(card) {
   // avoid open the third card while matching
   if (pairing.length <= 1) {
