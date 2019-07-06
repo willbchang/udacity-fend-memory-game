@@ -10,7 +10,7 @@ $('.deck').on('click', 'li', function () {
   // avoid click matched card
   if (!paired.has(card)) {
     open(card);
-    set(card);
+    pairing.put(card);
   }
   
   if (pairing.length === 2) {
@@ -35,10 +35,10 @@ function open(card) {
   }
 };
 
-function set(card) {
+Array.prototype.put = function (card) {
   // avoid click same card twice
-  if (!card.is(pairing[0])) {
-    pairing.push(card);
+  if (!card.is(this[0])) {
+    this.push(card);
   }
 }
 
