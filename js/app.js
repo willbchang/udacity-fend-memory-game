@@ -1,6 +1,6 @@
 display();
 
-var pair = []; // an array to pair clicked cards
+var pairing = []; // an array to pair clicked cards
 var card; // current card, it's a jQuery element
 // https://learn.jquery.com/events/event-delegation/#event-propagation
 $('.deck').on('click', 'li', function () {
@@ -11,21 +11,21 @@ $('.deck').on('click', 'li', function () {
 
 function open(card) {
   // avoid open the third card while matching
-  if (pair.length <= 1) {
+  if (pairing.length <= 1) {
     card.addClass('open show');
   }
 };
 
 function push(card) {
   // avoid click same card twice
-  if (!card.is(pair[0])) {
-    pair.push(card);
+  if (!card.is(pairing[0])) {
+    pairing.push(card);
   }
 };
 
 function isMatch(card) {
   // the last [0] gets a DOM element from jQuery object
-  return pair[0][0].isEqualNode(card[0]);
+  return pairing[0][0].isEqualNode(card[0]);
 };
 
 // Get cards' classes and return as an array
