@@ -15,6 +15,7 @@ $('.deck').on('click', 'li', function () {
   
   if (pairing.length === 2) {
     isMatch(pairing[0], pairing[1]) ? matched() : unmatched();
+    counter();
   }
 });
 
@@ -76,7 +77,6 @@ function isMatch(a, b) {
 function matched() {
   paired = paired.concat(pairing);
   pairing = [];
-  counter();
 }
 
 /* 
@@ -89,7 +89,6 @@ function unmatched() {
       card.removeClass('open show');
     }
     pairing = [];
-    counter();
   }, 1500);
 }
 
