@@ -8,7 +8,7 @@ var card; // current card, it's a jQuery element
 $('.deck').on('click', 'li', function () {
   card = $(this);
   // avoid click matched card
-  if (!inPaired(card)) {
+  if (!paired.has(card)) {
     open(card);
     push(card);
   }
@@ -39,10 +39,10 @@ function push(card) {
  *  array.includes() doesn't work here.
  * @param {*} card 
  */
-function inPaired(card) {
-  if (paired.length === 0) return false;
+Array.prototype.has = function (card) {
+  if (this.length === 0) return false;
 
-  for (const pairedCard of paired) {
+  for (const pairedCard of this) {
     if (isMatch(pairedCard, card)) return true;
   }
 
