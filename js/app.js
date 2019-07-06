@@ -5,7 +5,15 @@ var card; // current card, it's a jQuery element
 // https://learn.jquery.com/events/event-delegation/#event-propagation
 $('.deck').on('click', 'li', function () {
   card = $(this);
+  open(card);
 });
+
+function open(card) {
+  // avoid open the third card while matching
+  if (pair.length <= 1) {
+    card.addClass('open show');
+  }
+};
 
 // Get cards' classes and return as an array
 function cards() {
