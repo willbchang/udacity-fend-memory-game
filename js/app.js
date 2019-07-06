@@ -2,6 +2,7 @@ display();
 
 var pairing = []; // an array to pair clicked cards
 var paired = [];
+var count = 0; // Call by counter()
 var card; // current card, it's a jQuery element
 // https://learn.jquery.com/events/event-delegation/#event-propagation
 $('.deck').on('click', 'li', function () {
@@ -45,6 +46,7 @@ function matched() {
 
   paired = paired.concat(pairing);
   pairing = [];
+  counter();
 }
 
 /* 
@@ -57,7 +59,16 @@ function unmatched() {
       card.removeClass('open show');
     }
     pairing = [];
+    counter();
   }, 1500);
+}
+
+/**
+ * Count each pairing click, update the counter
+ */
+function counter() {
+  count += 1;
+  $('.moves').text(count);
 }
 
 // Get cards' classes and return as an array
