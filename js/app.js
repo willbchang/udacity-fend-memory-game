@@ -79,9 +79,12 @@ function matched() {
   pairing = [];
 }
 
-/* 
- * hide unmatched cards and empty pairing[]
- * give time to memorize cards' position
+/**
+ * Hide unmatched cards and empty pairing[]
+ * NOTICE: there is a time out
+ *  pairing[] can't be empty in event listener
+ *  otherwise card won't hide
+ * give player sometime to memorize cards' position
  */
 function unmatched() {
   setTimeout(() => {
