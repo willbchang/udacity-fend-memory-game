@@ -8,6 +8,10 @@ $('.deck').on('click', 'li', function () {
   card = $(this);
   open(card);
   push(card);
+
+  if (pairing.length === 2) {
+    isMatch(card) ? matched() : unmatched();
+  }
 });
 
 function open(card) {
