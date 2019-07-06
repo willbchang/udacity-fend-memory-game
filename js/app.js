@@ -7,9 +7,12 @@ var card; // current card, it's a jQuery element
 // https://learn.jquery.com/events/event-delegation/#event-propagation
 $('.deck').on('click', 'li', function () {
   card = $(this);
-  open(card);
-  push(card);
-
+  // avoid click matched card
+  if (!inPaired(card)) {
+    open(card);
+    push(card);
+  }
+  
   if (pairing.length === 2) {
     isMatch(pairing[0], card) ? matched() : unmatched();
   }
@@ -27,7 +30,24 @@ function push(card) {
   if (!card.is(pairing[0])) {
     pairing.push(card);
   }
-};
+}
+
+/**
+ * Check if a card is in paired[]
+ * the first if avoid the empty paired[]
+ * for loop check each item in paired[]
+ *  array.includes() doesn't work here.
+ * @param {*} card 
+ */
+function inPaired(card) {
+  if (paired.length === 0) return false;
+
+  for (const pairedCard of paired) {
+    if (isMatch(pairedCard, card)) return true;
+  }
+
+  return false;
+}
 
 /**
  * Returns a boolean by compare two jQuery Object 
@@ -36,7 +56,6 @@ function push(card) {
  * [0] gets the DOM Element from the jQuery Object
  */
 function isMatch(a, b) {
-  // [0] gets the DOM element from the jQuery object
   return a[0].isEqualNode(b[0]);
 };
 
@@ -46,10 +65,6 @@ function isMatch(a, b) {
  * it will check whether the pairing cards are already paired.
  */
 function matched() {
-  for (const card of paired) {
-    if (isMatch(card)) return pairing = [];
-  }
-
   paired = paired.concat(pairing);
   pairing = [];
   counter();
