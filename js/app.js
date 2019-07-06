@@ -1,46 +1,46 @@
 // Get cards' classes and return as an array
 function cards() {
-     var cards = [];
-     $('.card i').each(function() {
-        cards.push($(this).attr('class'));
-    });
-    
-    return cards;
- }
+  var cards = [];
+  $('.card i').each(function() {
+    cards.push($(this).attr('class'));
+  });
+  
+  return cards;
+}
 
 /*
- * Display the shuffled cards on the page
- *   - shuffle the list of cards with "shuffle()"
- *   - loop through each card and change its class with shuffled one.
- */
+* Display the shuffled cards on the page
+*   - shuffle the list of cards with "shuffle()"
+*   - loop through each card and change its class with shuffled one.
+*/
 
 function display() {
-    const shuffledCards = shuffle(cards());
-    var index = 0;
-    var oldClass;
-    var newClass;
-
-    $('.card i[class^="fa"]').each(function() {
-        oldClass = $(this).attr('class');
-        newClass = shuffledCards[index];
-        $(this).removeClass(oldClass).addClass(newClass);
-        index += 1;
-    });
+  const shuffledCards = shuffle(cards());
+  var index = 0;
+  var oldClass;
+  var newClass;
+  
+  $('.card i[class^="fa"]').each(function() {
+    oldClass = $(this).attr('class');
+    newClass = shuffledCards[index];
+    $(this).removeClass(oldClass).addClass(newClass);
+    index += 1;
+  });
 }
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
-
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
-
-    return array;
+  var currentIndex = array.length, temporaryValue, randomIndex;
+  
+  while (currentIndex !== 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  
+  return array;
 }
 
 
