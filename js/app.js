@@ -6,12 +6,20 @@ var card; // current card, it's a jQuery element
 $('.deck').on('click', 'li', function () {
   card = $(this);
   open(card);
+  push(card);
 });
 
 function open(card) {
   // avoid open the third card while matching
   if (pair.length <= 1) {
     card.addClass('open show');
+  }
+};
+
+function push(card) {
+  // avoid click same card twice
+  if (!card.is(pair[0])) {
+    pair.push(card);
   }
 };
 
