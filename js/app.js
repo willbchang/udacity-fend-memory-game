@@ -11,7 +11,7 @@ $('.deck').on('click', 'li', function () {
   push(card);
 
   if (pairing.length === 2) {
-    isMatch(card) ? matched() : unmatched();
+    isMatch(pairing[0], card) ? matched() : unmatched();
   }
 });
 
@@ -29,9 +29,15 @@ function push(card) {
   }
 };
 
-function isMatch(card) {
-  // the last [0] gets a DOM element from jQuery object
-  return pairing[0][0].isEqualNode(card[0]);
+/**
+ * Returns a boolean by compare two jQuery Object 
+ * @param {jQuery Object} a 
+ * @param {jQuery Object} b 
+ * [0] gets the DOM Element from the jQuery Object
+ */
+function isMatch(a, b) {
+  // [0] gets the DOM element from the jQuery object
+  return a[0].isEqualNode(b[0]);
 };
 
 /*
