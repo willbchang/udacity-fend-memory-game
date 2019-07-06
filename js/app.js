@@ -23,6 +23,11 @@ function push(card) {
   }
 };
 
+function isMatch(card) {
+  // the last [0] gets a DOM element from jQuery object
+  return pair[0][0].isEqualNode(card[0]);
+};
+
 // Get cards' classes and return as an array
 function cards() {
   var cards = [];
