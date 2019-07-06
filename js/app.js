@@ -1,3 +1,12 @@
+display();
+
+var pair = []; // an array to pair clicked cards
+var card; // current card, it's a jQuery element
+// https://learn.jquery.com/events/event-delegation/#event-propagation
+$('.deck').on('click', 'li', function () {
+  card = $(this);
+});
+
 // Get cards' classes and return as an array
 function cards() {
   var cards = [];
