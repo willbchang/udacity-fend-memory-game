@@ -9,8 +9,8 @@ $('.deck').on('click', 'li', function () {
   card = $(this);
   // avoid click matched card
   if (!paired.has(card)) {
-    open(card);
     pairing.put(card);
+    show(card);
   }
   
   if (pairing.length === 2) {
@@ -28,9 +28,9 @@ $('.restart').click(function() {
   $('.moves').text(count);
 });
 
-function open(card) {
+function show(card) {
   // avoid open the third card while matching
-  if (pairing.length <= 1) {
+  if (pairing.length <= 2) {
     card.addClass('open show');
   }
 };
