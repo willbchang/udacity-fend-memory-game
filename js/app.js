@@ -19,10 +19,8 @@ $('.deck').on('click', 'li', function () {
   }
 });
 
-$('.restart').click(function() {
-  $('.card').each(function() {
-    $(this).removeClass('open show');
-  });
+$('.restart').click(function () {
+  hide(paired);
   init();
   count = 0
   $('.moves').text(count);
@@ -34,6 +32,12 @@ function show(card) {
     card.addClass('open show');
   }
 };
+
+function hide(cards) {
+  for (const card of cards) {
+    card.removeClass('open show');
+  }
+}
 
 Array.prototype.put = function (card) {
   // avoid click same card twice
@@ -88,9 +92,7 @@ function matched() {
  */
 function unmatched() {
   setTimeout(() => {
-    for (const card of pairing) {
-      card.removeClass('open show');
-    }
+    hide(pairing);
     pairing = [];
   }, 1500);
 }
