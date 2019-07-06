@@ -1,6 +1,7 @@
 display();
 
 var pairing = []; // an array to pair clicked cards
+var paired = [];
 var card; // current card, it's a jQuery element
 // https://learn.jquery.com/events/event-delegation/#event-propagation
 $('.deck').on('click', 'li', function () {
@@ -27,6 +28,20 @@ function isMatch(card) {
   // the last [0] gets a DOM element from jQuery object
   return pairing[0][0].isEqualNode(card[0]);
 };
+
+/*
+ * Store matched cards to paired[] and reset pairing[];
+ * the for loop is to avoid click matched cards
+ * it will check whether the pairing cards are already paired.
+ */
+function matched() {
+  for (const card of paired) {
+    if (isMatch(card)) return pairing = [];
+  }
+
+  paired = paired.concat(pairing);
+  pairing = [];
+}
 
 // Get cards' classes and return as an array
 function cards() {
