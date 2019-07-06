@@ -1,4 +1,4 @@
-display();
+init();
 
 var pairing = []; // an array to pair clicked cards
 var paired = [];
@@ -10,11 +10,11 @@ $('.deck').on('click', 'li', function () {
   // avoid click matched card
   if (!paired.has(card)) {
     open(card);
-    push(card);
+    set(card);
   }
   
   if (pairing.length === 2) {
-    isMatch(pairing[0], card) ? matched() : unmatched();
+    isMatch(pairing[0], pairing[1]) ? matched() : unmatched();
   }
 });
 
@@ -25,7 +25,7 @@ function open(card) {
   }
 };
 
-function push(card) {
+function set(card) {
   // avoid click same card twice
   if (!card.is(pairing[0])) {
     pairing.push(card);
@@ -108,7 +108,7 @@ function cards() {
 *   - loop through each card and change its class with shuffled one.
 */
 
-function display() {
+function init() {
   const shuffledCards = shuffle(cards());
   var index = 0;
   var oldClass;
