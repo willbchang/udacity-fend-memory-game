@@ -9,15 +9,15 @@ $(function() {
   
   $('.deck').on('click', 'li', function () {
     card = $(this);
-    // avoid click matched card
-    if (!paired.has(card)) {
+    
+    if (paired.has(card)) return; // avoid click matched card
+    if (pairing.length < 2) {
       pairing.put(card);
       show(card);
     }
     
     if (pairing.length === 2) {
       isMatch(pairing[0], pairing[1]) ? matched() : unmatched();
-      counter();
     }
   });
 })
@@ -30,10 +30,7 @@ $('.restart').click(function () {
 });
 
 function show(card) {
-  // avoid open the third card while matching
-  if (pairing.length <= 2) {
-    card.addClass('open show');
-  }
+  card.addClass('open show');
 }
 
 function hide(cards) {
