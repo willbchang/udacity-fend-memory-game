@@ -4,24 +4,24 @@ var count = 0; // count move(click two different cards)
 var card; // store current card, it's a jQuery element
 
 // This could fix hosit problem for customize array.prototype
-$(function() {
+$(function () {
   init();
-  
+
   // https://learn.jquery.com/events/event-delegation/#event-propagation
   $('.deck').on('click', 'li', function () {
     card = $(this);
-    
+
     if (paired.has(card)) return; // avoid click matched card
     if (pairing.length < 2) {
       pairing.put(card);
       show(card);
     }
-    
+
     if (pairing.length === 2) {
       matching(pairing);
     }
   });
- 
+
   $('.restart').click(function () {
     init();
   });
@@ -37,8 +37,8 @@ function init() {
   var index = 0;
   var oldClass;
   var newClass;
-  
-  $('.card i[class^="fa"]').each(function() {
+
+  $('.card i[class^="fa"]').each(function () {
     oldClass = $(this).attr('class');
     newClass = shuffledCards[index];
     $(this).removeClass(oldClass).addClass(newClass);
@@ -59,10 +59,10 @@ function init() {
  */
 function cards() {
   var cards = [];
-  $('.card i').each(function() {
+  $('.card i').each(function () {
     cards.push($(this).attr('class'));
   });
-  
+
   return cards;
 }
 
