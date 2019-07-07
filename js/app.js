@@ -27,12 +27,22 @@ $(function () {
   });
 });
 
+function init() {
+  hide(pairing);
+  hide(paired);
+  shuffleCards();
+  pairing = [];
+  paired = [];
+  count = 0
+  $('.moves').text(count);
+}
+
 /*
-* Display the shuffled cards on the page
+* Display the hide shuffled cards on the page
 *   - shuffle the list of cards with "shuffle()"
 *   - loop through each card and change its class with shuffled one.
 */
-function init() {
+function shuffleCards() {
   const shuffledCards = cards().shuffle();
   var index = 0;
   var oldClass;
@@ -44,13 +54,6 @@ function init() {
     $(this).removeClass(oldClass).addClass(newClass);
     index += 1;
   });
-
-  hide(pairing);
-  hide(paired);
-  pairing = [];
-  paired = [];
-  count = 0
-  $('.moves').text(count);
 }
 
 /**
