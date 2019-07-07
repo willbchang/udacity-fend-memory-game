@@ -112,8 +112,11 @@ function unmatched(cards) {
  * Count each pairing click, update the counter
  */
 function counter() {
-  count += 1;
-  $('.moves').text(count);
+  // avoid to count click while matching
+  if (pairing.length === 0) {
+    count += 1;
+    $('.moves').text(count);
+  }
 }
 
 // Get cards' classes and return as an array
