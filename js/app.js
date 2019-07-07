@@ -29,6 +29,35 @@ $('.restart').click(function () {
   $('.moves').text(count);
 });
 
+/*
+* Display the shuffled cards on the page
+*   - shuffle the list of cards with "shuffle()"
+*   - loop through each card and change its class with shuffled one.
+*/
+function init() {
+  const shuffledCards = cards().shuffle();
+  var index = 0;
+  var oldClass;
+  var newClass;
+  
+  $('.card i[class^="fa"]').each(function() {
+    oldClass = $(this).attr('class');
+    newClass = shuffledCards[index];
+    $(this).removeClass(oldClass).addClass(newClass);
+    index += 1;
+  });
+}
+
+// Get cards' classes and return as an array
+function cards() {
+  var cards = [];
+  $('.card i').each(function() {
+    cards.push($(this).attr('class'));
+  });
+  
+  return cards;
+}
+
 function show(card) {
   card.addClass('open show');
 }
@@ -38,30 +67,6 @@ function hide(cards) {
     card.removeClass('open show');
   }
 }
-
-Array.prototype.put = function (card) {
-  // avoid click same card twice
-  if (!card.is(this[0])) {
-    this.push(card);
-  }
-};
-
-/**
- * Check if a card is in paired[]
- * the first if avoid the empty paired[]
- * for loop check each item in paired[]
- *  array.includes() doesn't work here.
- * @param {*} card 
- */
-Array.prototype.has = function (card) {
-  if (this.length === 0) return false;
-
-  for (const pairedCard of this) {
-    if (isMatch(pairedCard, card)) return true;
-  }
-
-  return false;
-};
 
 /**
  * It matches two cards in array
@@ -73,7 +78,6 @@ function matching(cards) {
   pairing = [];
   counter();
   isMatch(cards[0], cards[1]) ? matched(cards) : unmatched(cards);
-
 }
 
 /**
@@ -119,35 +123,6 @@ function counter() {
   }
 }
 
-// Get cards' classes and return as an array
-function cards() {
-  var cards = [];
-  $('.card i').each(function() {
-    cards.push($(this).attr('class'));
-  });
-  
-  return cards;
-}
-
-/*
-* Display the shuffled cards on the page
-*   - shuffle the list of cards with "shuffle()"
-*   - loop through each card and change its class with shuffled one.
-*/
-
-function init() {
-  const shuffledCards = cards().shuffle();
-  var index = 0;
-  var oldClass;
-  var newClass;
-  
-  $('.card i[class^="fa"]').each(function() {
-    oldClass = $(this).attr('class');
-    newClass = shuffledCards[index];
-    $(this).removeClass(oldClass).addClass(newClass);
-    index += 1;
-  });
-}
 
 // Shuffle function from https://stackoverflow.com/a/6274381/9984029
 Array.prototype.shuffle = function () {
@@ -157,4 +132,28 @@ Array.prototype.shuffle = function () {
   }
 
   return this;
+};
+
+/**
+ * Check if a card is in paired[]
+ * the first if avoid the empty paired[]
+ * for loop check each item in paired[]
+ *  array.includes() doesn't work here.
+ * @param {*} card 
+ */
+Array.prototype.has = function (card) {
+  if (this.length === 0) return false;
+
+  for (const pairedCard of this) {
+    if (isMatch(pairedCard, card)) return true;
+  }
+
+  return false;
+};
+
+Array.prototype.put = function (card) {
+  // avoid click same card twice
+  if (!card.is(this[0])) {
+    this.push(card);
+  }
 };
