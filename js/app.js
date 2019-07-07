@@ -75,7 +75,7 @@ function show(card) {
 
 function hide(cards) {
   for (const card of cards) {
-    card.removeClass('open show');
+    card.removeClass('open show match');
   }
 }
 
