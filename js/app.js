@@ -47,6 +47,13 @@ function init() {
     $(this).removeClass(oldClass).addClass(newClass);
     index += 1;
   });
+
+  hide(pairing);
+  hide(paired);
+  pairing = [];
+  paired = [];
+  count = 0
+  $('.moves').text(count);
 }
 
 /**
