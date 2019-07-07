@@ -1,12 +1,13 @@
 var pairing = []; // an array to pair clicked cards
-var paired = [];
-var count = 0; // Call by counter()
-var card; // current card, it's a jQuery element
+var paired = []; // an array to store paired cards
+var count = 0; // count move(click two different cards)
+var card; // store current card, it's a jQuery element
 
-// https://learn.jquery.com/events/event-delegation/#event-propagation
+// This could fix hosit problem for customize array.prototype
 $(function() {
   init();
   
+  // https://learn.jquery.com/events/event-delegation/#event-propagation
   $('.deck').on('click', 'li', function () {
     card = $(this);
     
@@ -48,7 +49,10 @@ function init() {
   });
 }
 
-// Get cards' classes and return as an array
+/**
+ * Get cards' classes from HTML
+ * returns an array
+ */
 function cards() {
   var cards = [];
   $('.card i').each(function() {
@@ -90,7 +94,7 @@ function isMatch(a, b) {
   return a[0].isEqualNode(b[0]);
 }
 
-/*
+/**
  * Store matched cards to paired[] and reset pairing[];
  * the for loop is to avoid click matched cards
  * it will check whether the pairing cards are already paired.
@@ -139,7 +143,7 @@ Array.prototype.shuffle = function () {
  * the first if avoid the empty paired[]
  * for loop check each item in paired[]
  *  array.includes() doesn't work here.
- * @param {*} card 
+ * @param {jQuery Object} card 
  */
 Array.prototype.has = function (card) {
   if (this.length === 0) return false;
@@ -151,8 +155,12 @@ Array.prototype.has = function (card) {
   return false;
 };
 
+/** 
+ * An array.push() method with if statement
+ *  it avoids push the same card to pairing []
+ *  which means click same card twice
+ */
 Array.prototype.put = function (card) {
-  // avoid click same card twice
   if (!card.is(this[0])) {
     this.push(card);
   }
