@@ -79,6 +79,12 @@ function hide(cards) {
   }
 }
 
+function showMatched(cards) {
+  for (const card of cards) {
+    card.addClass('match');
+    card.removeClass('open show');
+  }
+}
 /**
  * It matches two cards in array
  *  reset pairing
@@ -108,6 +114,7 @@ function isMatch(a, b) {
  */
 function matched(cards) {
   paired = paired.concat(cards);
+  showMatched(cards);
 }
 
 /**
