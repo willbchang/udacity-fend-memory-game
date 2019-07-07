@@ -21,13 +21,10 @@ $(function() {
       matching(pairing);
     }
   });
-})
-
-$('.restart').click(function () {
-  hide(paired);
-  init();
-  count = 0
-  $('.moves').text(count);
+ 
+  $('.restart').click(function () {
+    init();
+  });
 });
 
 /*
