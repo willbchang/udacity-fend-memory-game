@@ -17,7 +17,7 @@ $(function() {
     }
     
     if (pairing.length === 2) {
-      isMatch(pairing[0], pairing[1]) ? matched() : unmatched();
+      matching(pairing);
     }
   });
 })
@@ -64,6 +64,19 @@ Array.prototype.has = function (card) {
 };
 
 /**
+ * It matches two cards in array
+ *  reset pairing
+ *  count move
+ * @param {Array} cards A copy of pairing[]
+ */
+function matching(cards) {
+  pairing = [];
+  counter();
+  isMatch(cards[0], cards[1]) ? matched(cards) : unmatched(cards);
+
+}
+
+/**
  * Returns a boolean by compare two jQuery Object 
  * @param {jQuery Object} a 
  * @param {jQuery Object} b 
@@ -78,9 +91,8 @@ function isMatch(a, b) {
  * the for loop is to avoid click matched cards
  * it will check whether the pairing cards are already paired.
  */
-function matched() {
-  paired = paired.concat(pairing);
-  pairing = [];
+function matched(cards) {
+  paired = paired.concat(cards);
 }
 
 /**
@@ -90,10 +102,9 @@ function matched() {
  *  otherwise card won't hide
  * give player sometime to memorize cards' position
  */
-function unmatched() {
+function unmatched(cards) {
   setTimeout(() => {
-    hide(pairing);
-    pairing = [];
+    hide(cards);
   }, 1500);
 }
 
