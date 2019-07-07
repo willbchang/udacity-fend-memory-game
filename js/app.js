@@ -122,7 +122,7 @@ function cards() {
 */
 
 function init() {
-  const shuffledCards = shuffle(cards());
+  const shuffledCards = cards().shuffle();
   var index = 0;
   var oldClass;
   var newClass;
@@ -136,11 +136,11 @@ function init() {
 }
 
 // Shuffle function from https://stackoverflow.com/a/6274381/9984029
-function shuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
+Array.prototype.shuffle = function () {
+  for (let i = this.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
+    [this[i], this[j]] = [this[j], this[i]];
   }
 
-  return array;
-}
+  return this;
+};
