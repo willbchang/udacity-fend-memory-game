@@ -1,23 +1,26 @@
-init();
-
 var pairing = []; // an array to pair clicked cards
 var paired = [];
 var count = 0; // Call by counter()
 var card; // current card, it's a jQuery element
+
 // https://learn.jquery.com/events/event-delegation/#event-propagation
-$('.deck').on('click', 'li', function () {
-  card = $(this);
-  // avoid click matched card
-  if (!paired.has(card)) {
-    pairing.put(card);
-    show(card);
-  }
+$(function() {
+  init();
   
-  if (pairing.length === 2) {
-    isMatch(pairing[0], pairing[1]) ? matched() : unmatched();
-    counter();
-  }
-});
+  $('.deck').on('click', 'li', function () {
+    card = $(this);
+    // avoid click matched card
+    if (!paired.has(card)) {
+      pairing.put(card);
+      show(card);
+    }
+    
+    if (pairing.length === 2) {
+      isMatch(pairing[0], pairing[1]) ? matched() : unmatched();
+      counter();
+    }
+  });
+})
 
 $('.restart').click(function () {
   hide(paired);
