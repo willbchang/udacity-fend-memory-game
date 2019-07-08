@@ -14,7 +14,7 @@ $(function () {
     if (paired.has(card)) return; // avoid click matched card
     if (pairing.has(card)) return; // avoid click matching card
     if (pairing.length < 2) {
-      pairing.put(card);
+      pairing.push(card);
       show(card);
     }
 
@@ -168,15 +168,4 @@ Array.prototype.has = function (card) {
   }
 
   return false;
-};
-
-/** 
- * An array.push() method with if statement
- *  it avoids push the same card to pairing []
- *  which means click same card twice
- */
-Array.prototype.put = function (card) {
-  if (!card.is(this[0])) {
-    this.push(card);
-  }
 };
