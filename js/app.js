@@ -11,8 +11,8 @@ $(function () {
   $('.deck').on('click', 'li', function () {
     card = $(this);
 
-    if (paired.has(card)) return; // avoid click matched card
-    if (pairing.has(card)) return; // avoid click matching card
+     // avoid click matched and matching card
+    if (paired.has(card) || pairing.has(card)) return;
     if (pairing.length < 2) {
       pairing.push(card);
       show(card);
