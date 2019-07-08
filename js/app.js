@@ -20,6 +20,7 @@ $(function () {
 
     if (pairing.length === 2) {
       matching(pairing);
+      rate();
     }
   });
 
@@ -36,6 +37,9 @@ function init() {
   paired = [];
   count = 0
   $('.moves').text(count);
+  // reset to 3 stars
+  $('.fa-star').eq(2).removeClass('far').addClass('fa')
+  $('.fa-star').eq(1).removeClass('far').addClass('fa')
 }
 
 /*
@@ -142,6 +146,32 @@ function counter() {
   }
 }
 
+/**
+ * Rate stars by current moves
+ *  3 stars: 12 moves, player have 16 cards with 8 pairs,
+ *    player clicks 8 cards to memorize what they are(both unique assumed),
+ *    then clicks another card in the rest of 8 cards,
+ *    now clicks a paired card to match in first 8 cards,
+ *    totally, player clicks 8 * 3 times and has 8 * 3 / 2 moves.
+ *    That means player has no chance to make mistake,
+ *    unless player luckly paired 2 sets of cards with 2 move.
+ *    in that case, player can make 1 mistake.
+ *  2 stars: 16 moves, click each card twice.
+ *    when player paired a wrong card, player needs another move
+ *    totally, player has 2 times to make mistake.
+ *  1 stars: more than 16 moves.
+ */
+function rate() {
+  if (count <= 12) {
+    // 3 stars, do nothing
+  } else if (count <= 16) {
+    // 2 stars
+    $('.fa-star').eq(2).removeClass('fa').addClass('far')
+  } else {
+    // 1 stars
+    $('.fa-star').eq(1).removeClass('fa').addClass('far')
+  }
+}
 
 // Shuffle function from https://stackoverflow.com/a/6274381/9984029
 Array.prototype.shuffle = function () {
