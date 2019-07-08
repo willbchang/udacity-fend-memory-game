@@ -12,6 +12,7 @@ $(function () {
     card = $(this);
 
     if (paired.has(card)) return; // avoid click matched card
+    if (pairing.has(card)) return; // avoid click matching card
     if (pairing.length < 2) {
       pairing.put(card);
       show(card);
