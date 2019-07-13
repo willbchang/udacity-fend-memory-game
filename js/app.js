@@ -186,15 +186,13 @@ Array.prototype.shuffle = function () {
 };
 
 /**
- * Check if a card is in paired[]
- * the first if avoid the empty paired[]
- * for loop check each item in paired[]
+ * Check whether current card is in cards array
+ * it will return false when cards array is empty 
+ * for loop will check each card in cards array
  *  array.includes() doesn't work here.
  * @param {jQuery Object} card 
  */
 Array.prototype.has = function (card) {
-  if (this.length === 0) return false;
-
   for (const pairedCard of this) {
     if (isMatch(pairedCard, card)) return true;
   }
