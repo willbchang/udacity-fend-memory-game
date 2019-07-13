@@ -162,15 +162,9 @@ function counter() {
  *  1 stars: more than 16 moves.
  */
 function rate() {
-  if (count <= 12) {
-    // 3 stars, do nothing
-  } else if (count <= 16) {
-    // 2 stars
-    $('.fa-star').eq(2).removeClass('fa').addClass('far')
-  } else {
-    // 1 stars
-    $('.fa-star').eq(1).removeClass('fa').addClass('far')
-  }
+  var stars;
+  count <= 12 ? stars = 3 : count <= 16 ? stars = 2 : stars = 1;
+  $('.fa-star').eq(stars).removeClass('fa').addClass('far')
 }
 
 // Shuffle function from https://stackoverflow.com/a/6274381/9984029
