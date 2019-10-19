@@ -24,7 +24,5 @@ Array.prototype.hide = function () {
 }
 
 Array.prototype.match = function () {
-  for (const card of this) {
-    card.match();
-  }
+  this.map(card => card.match());
 }
