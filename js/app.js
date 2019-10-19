@@ -34,8 +34,8 @@ $(function () {
 });
 
 function init() {
-  hide(pairing);
-  hide(paired);
+  pairing.hide();
+  paired.hide();
   shuffleCards();
   pairing = [];
   paired = [];
@@ -76,12 +76,6 @@ function cards() {
   });
 
   return cards;
-}
-
-function hide(cards) {
-  for (const card of cards) {
-    card.removeClass('open show match');
-  }
 }
 
 function showMatched(cards) {
@@ -131,7 +125,7 @@ function matched(cards) {
  */
 function unmatched(cards) {
   setTimeout(() => {
-    hide(cards);
+    cards.hide();
   }, 1500);
 }
 

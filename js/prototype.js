@@ -18,3 +18,9 @@ Array.prototype.shuffle = function () {
 Array.prototype.have = function (card) {
   return this.reduce((b, c) => b || c[0].isEqualNode(card[0]), false);
 };
+
+Array.prototype.hide = function () {
+  for (const card of this) {
+    card.removeClass('open show match');
+  }
+}
