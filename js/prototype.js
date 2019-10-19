@@ -17,7 +17,7 @@ Array.prototype.shuffle = function () {
  */
 Array.prototype.has = function (card) {
   for (const pairedCard of this) {
-    if (isMatch(pairedCard, card)) return true;
+    if (pairedCard[0].isEqualNode(card[0])) return true;
   }
   return false;
 };
