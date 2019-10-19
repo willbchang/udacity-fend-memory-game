@@ -15,7 +15,7 @@ Array.prototype.shuffle = function () {
  *  array.includes() doesn't work here.
  * @param {jQuery Object} card 
  */
-Array.prototype.has = function (card) {
+Array.prototype.have = function (card) {
   for (const pairedCard of this) {
     if (pairedCard[0].isEqualNode(card[0])) return true;
   }
