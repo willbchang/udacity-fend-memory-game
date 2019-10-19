@@ -78,7 +78,7 @@ function cards() {
   return cards;
 }
 
-function showMatched(cards) {
+function match(cards) {
   for (const card of cards) {
     card.addClass('match');
     card.removeClass('open show');
@@ -113,7 +113,7 @@ function isMatch(a, b) {
  */
 function matched(cards) {
   paired = paired.concat(cards);
-  showMatched(cards);
+  match(cards);
 }
 
 /**
