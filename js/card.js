@@ -5,5 +5,8 @@ jQuery.fn.extend({
   },
   hide: function () {
     this.removeClass('open show match');
+  },
+  match: function () {
+    this.addClass('match');
   }
 });
