@@ -1,4 +1,5 @@
 import "./prototype.js" 
+import "./card.js"
 
 var pairing = []; // an array to pair clicked cards
 var paired = []; // an array to store paired cards
@@ -18,7 +19,7 @@ $(function () {
     
     if (pairing.length < 2) {
       pairing.push(card);
-      show(card);
+      card.show();
     }
 
     if (pairing.length === 2) {
@@ -75,10 +76,6 @@ function cards() {
   });
 
   return cards;
-}
-
-function show(card) {
-  card.addClass('open show');
 }
 
 function hide(cards) {
