@@ -22,3 +22,9 @@ Array.prototype.have = function (card) {
 Array.prototype.hide = function () {
   this.map(card => card.hide());
 }
+
+Array.prototype.match = function () {
+  for (const card of this) {
+    card.match();
+  }
+}

@@ -78,11 +78,6 @@ function cards() {
   return cards;
 }
 
-function match(cards) {
-  for (const card of cards) {
-    card.match();
-  }
-}
 /**
  * It matches two cards in array
  *  reset pairing
@@ -112,7 +107,7 @@ function isMatch(a, b) {
  */
 function matched(cards) {
   paired = paired.concat(cards);
-  match(cards);
+  cards.match();
 }
 
 /**
