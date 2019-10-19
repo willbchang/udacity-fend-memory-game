@@ -23,6 +23,6 @@ Array.prototype.hide = function () {
   this.map(card => card.hide());
 }
 
-Array.prototype.match = function () {
-  this.map(card => card.match());
+Array.prototype.pin = function () {
+  this.map(card => card.pin());
 }

@@ -6,7 +6,7 @@ jQuery.fn.extend({
   hide: function () {
     this.removeClass('open show match');
   },
-  match: function () {
+  pin: function () {
     this.addClass('match');
   }
 });

@@ -107,7 +107,7 @@ function isMatch(a, b) {
  */
 function matched(cards) {
   paired = paired.concat(cards);
-  cards.match();
+  cards.pin();
 }
 
 /**
