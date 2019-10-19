@@ -20,7 +20,7 @@ Array.prototype.have = function (card) {
 };
 
 Array.prototype.hide = function () {
-  for (const card of this) {
+  for (const card of cards) {
     card.removeClass('open show match');
   }
 }

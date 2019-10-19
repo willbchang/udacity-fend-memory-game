@@ -1,5 +1,5 @@
-import "./prototype.js" 
 import "./card.js"
+import "./cards.js" 
 
 var pairing = []; // an array to pair clicked cards
 var paired = []; // an array to store paired cards
