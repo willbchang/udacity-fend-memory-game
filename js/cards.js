@@ -16,7 +16,7 @@ Array.prototype.shuffle = function () {
  * @param {jQuery Object} card 
  */
 Array.prototype.have = function (card) {
-  return this.reduce((b, c) => b || c[0].isEqualNode(card[0]), false);
+  return this.reduce((b, c) => b || [c, card].match(), false);
 };
 
 Array.prototype.hide = function () {
@@ -25,4 +25,9 @@ Array.prototype.hide = function () {
 
 Array.prototype.pin = function () {
   this.map(card => card.pin());
+}
+
+Array.prototype.match = function () {
+  // The second [0] gets the DOM Element from jQuery Object
+  return this[0][0].isEqualNode(this[1][0]);
 }

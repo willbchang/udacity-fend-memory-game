@@ -87,17 +87,7 @@ function cards() {
 function matching(cards) {
   pairing = [];
   counter();
-  isMatch(cards[0], cards[1]) ? matched(cards) : unmatched(cards);
-}
-
-/**
- * Returns a boolean by compare two jQuery Object 
- * @param {jQuery Object} a 
- * @param {jQuery Object} b 
- * [0] gets the DOM Element from the jQuery Object
- */
-function isMatch(a, b) {
-  return a[0].isEqualNode(b[0]);
+  cards.match() ? matched(cards) : unmatched(cards);
 }
 
 /**
