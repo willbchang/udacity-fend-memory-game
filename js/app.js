@@ -81,7 +81,6 @@ function cards() {
 function match(cards) {
   for (const card of cards) {
     card.addClass('match');
-    card.removeClass('open show');
   }
 }
 /**
