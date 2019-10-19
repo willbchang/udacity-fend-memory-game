@@ -20,5 +20,5 @@ Array.prototype.have = function (card) {
 };
 
 Array.prototype.hide = function () {
-  this.map(card => card.removeClass('open show match'));
+  this.map(card => card.hide());
 }
