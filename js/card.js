@@ -9,7 +9,7 @@ jQuery.fn.extend({
   pin: function () {
     this.addClass('match');
   },
-  matches: function (card) {
+  match: function (card) {
     // The second [0] gets the DOM Element from jQuery Object
     return this[0].isEqualNode(card[0]);
   },

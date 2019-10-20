@@ -23,7 +23,7 @@ Array.prototype.shuffled = function () {
  * @param {jQuery Object} card 
  */
 Array.prototype.have = function (card) {
-  return this.reduce((b, c) => b || c.matches(card), false);
+  return this.reduce((b, c) => b || c.match(card), false);
 };
 
 Array.prototype.hide = function () {
