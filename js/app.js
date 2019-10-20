@@ -46,12 +46,7 @@ $(function () {
  * returns an array
  */
 function cards() {
-  var result = [];
-  $('.card').each(function () {
-    result.push($(this));
-  });
-
-  return result;
+  return $.map($('.card'), card => $(card));
 }
 
 /**
