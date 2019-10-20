@@ -46,12 +46,12 @@ $(function () {
  * returns an array
  */
 function cards() {
-  var cards = [];
+  var result = [];
   $('.card').each(function () {
-    cards.push($(this));
+    result.push($(this));
   });
 
-  return cards;
+  return result;
 }
 
 /**
