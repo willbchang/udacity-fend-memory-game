@@ -12,7 +12,7 @@ Array.prototype.shuffled = function () {
   // Deep copy and shuffle cards
   // https://api.jquery.com/clone/
   const cards = this.map(x => x.clone()).shuffle();  
-  this.map((card, i) => card.update(cards[i]));
+  this.map((card, i) => card.replace(cards[i]));
 }
 
 /**
@@ -23,7 +23,7 @@ Array.prototype.shuffled = function () {
  * @param {jQuery Object} card 
  */
 Array.prototype.have = function (card) {
-  return this.reduce((b, c) => b || c.match(card), false);
+  return this.reduce((b, c) => b || c.matches(card), false);
 };
 
 Array.prototype.hide = function () {
