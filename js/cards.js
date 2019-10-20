@@ -9,7 +9,9 @@ Array.prototype.shuffle = function () {
 };
 
 Array.prototype.shuffled = function () {
-  const faCards = this.shuffle();
+  const cards = this.shuffle();
+  const faCards = cards.map(x => x.find('i').attr('class'));
+  
   $('.card i[class^="fa"]').each(function (index) {
     $(this).update(faCards[index]);
   });

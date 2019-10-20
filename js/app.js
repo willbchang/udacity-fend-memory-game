@@ -29,8 +29,7 @@ $(function () {
   });
 
   $('.restart').click(function () {
-    pairing.hide();
-    paired.hide();
+    cards().hide();
     cards().shuffled();
     pairing = [];
     paired = [];
@@ -48,8 +47,8 @@ $(function () {
  */
 function cards() {
   var cards = [];
-  $('.card i').each(function () {
-    cards.push($(this).attr('class'));
+  $('.card').each(function () {
+    cards.push($(this));
   });
 
   return cards;
