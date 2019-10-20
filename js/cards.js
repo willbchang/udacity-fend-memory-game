@@ -12,10 +12,7 @@ Array.prototype.shuffled = function () {
   // Deep copy and shuffle cards
   // https://api.jquery.com/clone/
   const cards = this.map(x => x.clone()).shuffle();  
-  this.map((card, i) => {
-    card.find('i').removeClass(card.find('i').attr('class'));
-    card.addClass(cards[i].find('i').attr('class'))
-  });
+  this.map((card, i) => card.update(cards[i]));
 }
 
 /**
