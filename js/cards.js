@@ -9,11 +9,12 @@ Array.prototype.shuffle = function () {
 };
 
 Array.prototype.shuffled = function () {
-  const cards = this.shuffle();
-  const faCards = cards.map(x => x.find('i').attr('class'));
-  
-  $('.card i[class^="fa"]').each(function (index) {
-    $(this).update(faCards[index]);
+  // Deep copy and shuffle cards
+  // https://api.jquery.com/clone/
+  const cards = this.map(x => x.clone()).shuffle();  
+  this.map((card, i) => {
+    card.find('i').removeClass(card.find('i').attr('class'));
+    card.addClass(cards[i].find('i').attr('class'))
   });
 }
 
