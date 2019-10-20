@@ -8,7 +8,7 @@ Array.prototype.shuffle = function () {
   return this;
 };
 
-Array.prototype.shuffled = function name() {
+Array.prototype.shuffled = function () {
   const faCards = this.shuffle();
   $('.card i[class^="fa"]').each(function (index) {
     $(this).update(faCards[index]);
