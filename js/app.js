@@ -68,7 +68,7 @@ function cards() {
 function matching(cards) {
   pairing = [];
   counter();
-  cards.match() ? matched(cards) : unmatched(cards);
+  cards[0].match(cards[1]) ? matched(cards) : unmatched(cards);
 }
 
 /**
