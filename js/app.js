@@ -36,7 +36,7 @@ $(function () {
 function init() {
   pairing.hide();
   paired.hide();
-  shuffleCards();
+  cards().shuffled();
   pairing = [];
   paired = [];
   count = 0
@@ -44,25 +44,6 @@ function init() {
   // reset to 3 stars
   $('.fa-star').eq(2).removeClass('far').addClass('fa')
   $('.fa-star').eq(1).removeClass('far').addClass('fa')
-}
-
-/*
-* Display the hide shuffled cards on the page
-*   - shuffle the list of cards with "shuffle()"
-*   - loop through each card and change its class with shuffled one.
-*/
-function shuffleCards() {
-  const shuffledCards = cards().shuffle();
-  var index = 0;
-  var oldClass;
-  var newClass;
-
-  $('.card i[class^="fa"]').each(function () {
-    oldClass = $(this).attr('class');
-    newClass = shuffledCards[index];
-    $(this).removeClass(oldClass).addClass(newClass);
-    index += 1;
-  });
 }
 
 /**

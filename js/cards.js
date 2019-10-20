@@ -8,6 +8,20 @@ Array.prototype.shuffle = function () {
   return this;
 };
 
+Array.prototype.shuffled = function name() {
+  const shuffledCards = this.shuffle();
+  var index = 0;
+  var oldClass;
+  var newClass;
+
+  $('.card i[class^="fa"]').each(function () {
+    oldClass = $(this).attr('class');
+    newClass = shuffledCards[index];
+    $(this).removeClass(oldClass).addClass(newClass);
+    index += 1;
+  });
+}
+
 /**
  * Check whether current card is in cards array
  * it will return false when cards array is empty 
