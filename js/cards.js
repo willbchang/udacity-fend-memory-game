@@ -10,13 +10,8 @@ Array.prototype.shuffle = function () {
 
 Array.prototype.shuffled = function name() {
   const shuffledCards = this.shuffle();
-  var oldClass;
-  var newClass;
-
   $('.card i[class^="fa"]').each(function (index) {
-    oldClass = $(this).attr('class');
-    newClass = shuffledCards[index];
-    $(this).removeClass(oldClass).addClass(newClass);
+    $(this).removeClass($(this).attr('class')).addClass(shuffledCards[index]);
   });
 }
 
