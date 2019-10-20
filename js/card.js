@@ -8,5 +8,8 @@ jQuery.fn.extend({
   },
   pin: function () {
     this.addClass('match');
+  },
+  update: function (faCard) {
+    $(this).removeClass($(this).attr('class')).addClass(faCard);
   }
 });

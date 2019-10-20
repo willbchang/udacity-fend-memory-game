@@ -11,7 +11,7 @@ Array.prototype.shuffle = function () {
 Array.prototype.shuffled = function name() {
   const faCards = this.shuffle();
   $('.card i[class^="fa"]').each(function (index) {
-    $(this).removeClass($(this).attr('class')).addClass(faCards[index]);
+    $(this).update(faCards[index]);
   });
 }
 
