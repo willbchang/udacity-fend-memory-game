@@ -78,9 +78,7 @@ function matching(cards) {
    * give player sometime to memorize cards' position
    */
   function unmatched(cards) {
-    setTimeout(() => {
-      cards.hide();
-    }, 1500);
+    setTimeout(() => cards.hide(), 1500);
   }
 }
 
