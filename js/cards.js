@@ -10,15 +10,13 @@ Array.prototype.shuffle = function () {
 
 Array.prototype.shuffled = function name() {
   const shuffledCards = this.shuffle();
-  var index = 0;
   var oldClass;
   var newClass;
 
-  $('.card i[class^="fa"]').each(function () {
+  $('.card i[class^="fa"]').each(function (index) {
     oldClass = $(this).attr('class');
     newClass = shuffledCards[index];
     $(this).removeClass(oldClass).addClass(newClass);
-    index += 1;
   });
 }
 
