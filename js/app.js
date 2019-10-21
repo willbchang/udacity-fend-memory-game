@@ -1,6 +1,6 @@
 import "./card.js"
 import "./cards.js"
-import * as score from "./scoreboard.js";
+import * as star from "./star.js";
 
 var pairing = []; // an array to pair clicked cards
 var paired = []; // an array to store paired cards
@@ -25,7 +25,7 @@ $(function () {
 
     if (pairing.length === 2) {
       matching(pairing);
-      score.rate(count);
+      star.rate(count);
     }
   });
 
@@ -36,7 +36,7 @@ $(function () {
     paired = [];
     count = 0
     $('.moves').text(count);
-    score.reset();
+    star.reset();
   });
 });
 
