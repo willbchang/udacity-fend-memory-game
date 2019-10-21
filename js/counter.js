@@ -1,5 +1,5 @@
-function update(num) {
-  $('.moves').text(num);
+function update(move) {
+  $('.moves').text(move);
 }
 
 function increase() {
