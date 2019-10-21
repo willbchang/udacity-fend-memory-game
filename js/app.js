@@ -36,9 +36,7 @@ $(function () {
     paired = [];
     count = 0
     $('.moves').text(count);
-    // reset to 3 stars
-    $('.fa-star').eq(2).removeClass('far').addClass('fa')
-    $('.fa-star').eq(1).removeClass('far').addClass('fa')
+    score.reset();
   });
 });
 
