@@ -33,15 +33,8 @@ $(function () {
   function matching(cards) {
     pairing = [];
     counter();
-    cards[0].match(cards[1]) ? matched(cards) : unmatched(cards);
-  }
-
-  function matched(cards) {
-    cards.pin();
-  }
-
-  function unmatched(cards) {
-    setTimeout(() => cards.hide(), 1500);
+    cards[0].match(cards[1]) ?
+      cards.pin() : setTimeout(() => cards.hide(), 1500);
   }
 
   function counter() {
