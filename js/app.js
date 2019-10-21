@@ -7,7 +7,21 @@ $(function () {
   cards().disorder();
   var pairing = [];
 
-  $('.deck').on('click', 'li', function () {
+  onClick(handler);
+
+  $('.restart').click(function () {
+    cards().hide();
+    cards().disorder();
+    pairing = [];
+    counter.reset();
+    star.reset();
+  });
+
+  function onClick(handler) {
+    $('.deck').on('click', 'li', handler);
+  }
+
+  function handler() {
     // avoid click opened and matched card
     if ($(this).hasClass('open')) return;
 
@@ -20,13 +34,5 @@ $(function () {
       counter.increase();
       star.rate(counter.count());
     }
-  });
-
-  $('.restart').click(function () {
-    cards().hide();
-    cards().disorder();
-    pairing = [];
-    counter.reset();
-    star.reset();
-  });
+  }
 });
