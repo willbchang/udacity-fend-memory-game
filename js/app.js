@@ -5,7 +5,6 @@ import * as star from "./star.js";
 $(function () {
   cards().disorder();
   var pairing = [];
-  var paired = [];
   var count = 0;
 
   $('.deck').on('click', 'li', function () {
@@ -26,7 +25,6 @@ $(function () {
     cards().hide();
     cards().disorder();
     pairing = [];
-    paired = [];
     count = 0
     $('.moves').text(count);
     star.reset();
@@ -39,7 +37,6 @@ $(function () {
   }
 
   function matched(cards) {
-    paired = paired.concat(cards);
     cards.pin();
   }
 
