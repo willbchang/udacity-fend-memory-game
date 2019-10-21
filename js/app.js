@@ -14,7 +14,7 @@ $(function () {
     pairing.push($(this));
 
     if (pairing.length === 2) {
-      matching(pairing);
+      pairing.match();
       pairing = [];
       counter();
       star.rate(count);
@@ -29,11 +29,6 @@ $(function () {
     $('.moves').text(count);
     star.reset();
   });
-
-  function matching(cards) {
-    cards[0].match(cards[1]) ?
-      cards.pin() : setTimeout(() => cards.hide(), 1500);
-  }
 
   function counter() {
     count += 1;
