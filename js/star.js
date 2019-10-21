@@ -1,5 +1,7 @@
-function rate(count) {
-  count <= 12 ? dim(3) : count <= 16 ? dim(2) : dim(1);
+import { count } from "./counter.js";
+
+function rate() {
+  count() <= 12 ? dim(3) : count() <= 16 ? dim(2) : dim(1)
 }
 
 function dim(nth) {
