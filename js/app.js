@@ -10,10 +10,8 @@ $(function () {
   $('.deck').on('click', 'li', function () {
     if ($(this).hasClass('open')) return;
 
-    if (pairing.length < 2) {
-      pairing.push($(this));
-      $(this).show();
-    }
+    $(this).show();
+    pairing.push($(this));
 
     if (pairing.length === 2) {
       matching(pairing);
