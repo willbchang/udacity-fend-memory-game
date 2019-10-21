@@ -4,9 +4,8 @@ import * as star from "./star.js";
 import * as counter from "./counter.js"
 
 $(function () {
-  cards().disorder();
-  var pairing = [];
-
+  var pairing;
+  init();
   onClick(handler);
   onRestart(init);
 
