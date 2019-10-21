@@ -24,7 +24,11 @@
 function rate(count) {
   var stars;
   count <= 12 ? stars = 3 : count <= 16 ? stars = 2 : stars = 1;
-  $('.fa-star').eq(stars).removeClass('fa').addClass('far')
+  dim(stars);
+}
+
+function dim(nth) {
+  $('.fa-star').eq(nth).removeClass('fa').addClass('far')
 }
 
 export { rate };
