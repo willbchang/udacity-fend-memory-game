@@ -26,8 +26,7 @@ function rate(count) {
 }
 
 function reset() {
-  $('.fa-star').eq(2).removeClass('far').addClass('fa')
-  $('.fa-star').eq(1).removeClass('far').addClass('fa')
+  $('.fa-star').removeClass('far').addClass('fa')
 }
 
 function dim(nth) {
