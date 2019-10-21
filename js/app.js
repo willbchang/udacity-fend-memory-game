@@ -36,12 +36,12 @@ $(function () {
     $('.moves').text(count);
     star.reset();
   });
-});
 
-function matching(cards) {
-  pairing = [];
-  counter();
-  cards[0].match(cards[1]) ? matched(cards) : unmatched(cards);
+  function matching(cards) {
+    pairing = [];
+    counter();
+    cards[0].match(cards[1]) ? matched(cards) : unmatched(cards);
+  }
 
   function matched(cards) {
     paired = paired.concat(cards);
@@ -51,12 +51,12 @@ function matching(cards) {
   function unmatched(cards) {
     setTimeout(() => cards.hide(), 1500);
   }
-}
 
-function counter() {
-  // avoid to count click while matching
-  if (pairing.length === 0) {
-    count += 1;
-    $('.moves').text(count);
+  function counter() {
+    // avoid to count click while matching
+    if (pairing.length === 0) {
+      count += 1;
+      $('.moves').text(count);
+    }
   }
-}
+});
