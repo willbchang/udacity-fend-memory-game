@@ -2,20 +2,13 @@ import "./card.js"
 import { cards } from "./cards.js"
 import * as star from "./star.js";
 import * as counter from "./counter.js"
+import * as event from "./event.js";
 
 $(function () {
   var pairing;
   init();
-  onClick(handler);
-  onRestart(init);
-
-  function onClick(handler) {
-    $('.deck').on('click', 'li', handler);
-  }
-
-  function onRestart(init) {
-    $('.restart').click(init);
-  }
+  event.onClick(handler);
+  event.onRestart(init);
 
   function handler() {
     // avoid click opened and matched card
