@@ -8,7 +8,7 @@ Array.prototype.shuffle = function () {
   return this;
 };
 
-Array.prototype.shuffled = function () {
+Array.prototype.disorder = function () {
   // Deep copy and shuffle cards
   // https://api.jquery.com/clone/
   const cards = this.map(x => x.clone()).shuffle();

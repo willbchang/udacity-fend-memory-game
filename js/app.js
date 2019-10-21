@@ -8,7 +8,7 @@ var card; // store current card, it's a jQuery element
 
 // This could fix hosit problem for customize array.prototype
 $(function () {
-  cards().shuffled();
+  cards().disorder();
 
   // https://learn.jquery.com/events/event-delegation/#event-propagation
   $('.deck').on('click', 'li', function () {
@@ -30,7 +30,7 @@ $(function () {
 
   $('.restart').click(function () {
     cards().hide();
-    cards().shuffled();
+    cards().disorder();
     pairing = [];
     paired = [];
     count = 0
