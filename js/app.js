@@ -9,8 +9,7 @@ $(function () {
   var count = 0;
 
   $('.deck').on('click', 'li', function () {
-    // avoid click matched and matching card
-    if (paired.have($(this)) || pairing.have($(this))) return;
+    if ($(this).hasClass('open')) return;
 
     if (pairing.length < 2) {
       pairing.push($(this));
@@ -49,10 +48,7 @@ $(function () {
   }
 
   function counter() {
-    // avoid to count click while matching
-    if (pairing.length === 0) {
-      count += 1;
-      $('.moves').text(count);
-    }
+    count += 1;
+    $('.moves').text(count);
   }
 });
