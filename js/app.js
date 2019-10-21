@@ -8,6 +8,7 @@ $(function () {
   var pairing = [];
 
   $('.deck').on('click', 'li', function () {
+    // avoid click opened and matched card
     if ($(this).hasClass('open')) return;
 
     $(this).show();
