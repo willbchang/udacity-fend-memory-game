@@ -2,13 +2,12 @@ import "./card.js"
 import { cards } from "./cards.js"
 import * as star from "./star.js";
 
-var pairing = [];
-var paired = [];
-var count = 0;
-var card;
-
 $(function () {
   cards().disorder();
+  var pairing = [];
+  var paired = [];
+  var count = 0;
+  var card;
 
   $('.deck').on('click', 'li', function () {
     card = $(this);
