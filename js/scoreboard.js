@@ -22,9 +22,7 @@
  *  1 stars: more than 16 moves.
  */
 function rate(count) {
-  var stars;
-  count <= 12 ? stars = 3 : count <= 16 ? stars = 2 : stars = 1;
-  dim(stars);
+  count <= 12 ? dim(3) : count <= 16 ? dim(2) : dim(1);
 }
 
 function dim(nth) {
