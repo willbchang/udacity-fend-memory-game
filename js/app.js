@@ -8,17 +8,14 @@ $(function () {
   var pairing = [];
 
   onClick(handler);
-
-  $('.restart').click(function () {
-    cards().hide();
-    cards().disorder();
-    pairing = [];
-    counter.reset();
-    star.reset();
-  });
+  onRestart(init);
 
   function onClick(handler) {
     $('.deck').on('click', 'li', handler);
+  }
+
+  function onRestart(init) {
+    $('.restart').click(init);
   }
 
   function handler() {
@@ -34,5 +31,13 @@ $(function () {
       counter.increase();
       star.rate(counter.count());
     }
+  }
+
+  function init() {
+    cards().hide();
+    cards().disorder();
+    pairing = [];
+    counter.reset();
+    star.reset();
   }
 });
