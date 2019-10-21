@@ -1,10 +1,10 @@
 import { count } from "./counter.js";
 
 function rate() {
-  count() <= 12 ? dim(3) : count() <= 16 ? dim(2) : dim(1)
+  count() <= 12 ? remain(3) : count() <= 16 ? remain(2) : remain(1)
 }
 
-function dim(nth) {
+function remain(nth) {
   $('.fa-star').eq(nth).removeClass('fa').addClass('far')
 }
 
