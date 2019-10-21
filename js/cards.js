@@ -39,8 +39,7 @@ Array.prototype.pin = function () {
 }
 
 Array.prototype.match = function () {
-  this[0].match(this[1]) ?
-    this.pin() : setTimeout(() => this.hide(), 1500);
+  this[0].match(this[1]) ? this.pin() : setTimeout(() => this.hide(), 1500);
 }
 
 export { cards };
