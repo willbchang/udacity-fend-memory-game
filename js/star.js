@@ -1,7 +1,5 @@
-import { count } from "./counter.js";
-
-function rate() {
-  count() <= 12 ? remain(3) : count() <= 16 ? remain(2) : remain(1)
+function rate(count) {
+  count <= 12 ? remain(3) : count <= 16 ? remain(2) : remain(1)
 }
 
 function remain(nth) {

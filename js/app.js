@@ -18,7 +18,7 @@ $(function () {
       pairing.match();
       pairing = [];
       counter.increase();
-      star.rate();
+      star.rate(counter.count());
     }
   });
 
