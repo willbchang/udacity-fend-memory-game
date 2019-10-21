@@ -7,17 +7,14 @@ $(function () {
   var pairing = [];
   var paired = [];
   var count = 0;
-  var card;
 
   $('.deck').on('click', 'li', function () {
-    card = $(this);
-
     // avoid click matched and matching card
-    if (paired.have(card) || pairing.have(card)) return;
+    if (paired.have($(this)) || pairing.have($(this))) return;
 
     if (pairing.length < 2) {
-      pairing.push(card);
-      card.show();
+      pairing.push($(this));
+      $(this).show();
     }
 
     if (pairing.length === 2) {
