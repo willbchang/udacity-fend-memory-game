@@ -19,17 +19,6 @@ Array.prototype.disorder = function () {
   this.map((card, i) => card.replace(cards[i]));
 }
 
-/**
- * Check whether current card is in cards array
- * it will return false when cards array is empty 
- * for loop will check each card in cards array
- *  array.includes() doesn't work here.
- * @param {jQuery Object} card 
- */
-Array.prototype.have = function (card) {
-  return this.reduce((b, c) => b || c.match(card), false);
-};
-
 Array.prototype.hide = function () {
   this.map(card => card.hide());
 }
