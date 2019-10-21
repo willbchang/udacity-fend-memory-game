@@ -1,3 +1,7 @@
+function cards() {
+  return $.map($('.card'), card => $(card));
+}
+
 // Shuffle function from https://stackoverflow.com/a/6274381/9984029
 Array.prototype.shuffle = function () {
   for (let i = this.length - 1; i > 0; i--) {
@@ -33,3 +37,5 @@ Array.prototype.hide = function () {
 Array.prototype.pin = function () {
   this.map(card => card.pin());
 }
+
+export { cards };

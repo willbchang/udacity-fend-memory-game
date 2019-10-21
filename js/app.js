@@ -1,5 +1,5 @@
 import "./card.js"
-import "./cards.js"
+import { cards } from "./cards.js"
 import * as star from "./star.js";
 
 var pairing = [];
@@ -37,10 +37,6 @@ $(function () {
     star.reset();
   });
 });
-
-function cards() {
-  return $.map($('.card'), card => $(card));
-}
 
 function matching(cards) {
   pairing = [];
