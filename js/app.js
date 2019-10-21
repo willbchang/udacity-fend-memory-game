@@ -5,7 +5,7 @@ import * as counter from "./counter.js"
 import * as event from "./event.js";
 
 $(function () {
-  var pairing;
+  let pairing;
   init();
   event.onClick(handler);
   event.onRestart(init);
