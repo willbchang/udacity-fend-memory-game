@@ -2,8 +2,8 @@ export default class Cards {
   constructor() {
     this.cards = $.map($('.card'), card => $(card));
   }
-  hide(aCards) {
-    aCards.map(card => card.hide());
+  hide(cards) {
+    cards.map(card => card.hide());
   }
   disorder() {
     const x = this.cards.map(card => card.clone()).shuffle();
