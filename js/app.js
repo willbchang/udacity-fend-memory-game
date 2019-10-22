@@ -14,8 +14,7 @@ $(function () {
     if ($(this).isShowed()) return;
     if (cards().opening().length > 1) return;
     $(this).show();
-    if (cards().opening().length !== 2) return;
-    pair();
+    if (cards().opening().length === 2) pair();
   }
 
   function pair() {
