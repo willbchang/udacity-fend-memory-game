@@ -6,7 +6,11 @@ export default class Event {
   static offClick() {
     $('.deck').off('click', 'li');
   }
-  
+
+  static oneClick(ticktock) {
+    $('.deck').one('click', 'li', ticktock);
+  }
+
   static onRestart(init) {
     $('.restart').click(init);
   }
