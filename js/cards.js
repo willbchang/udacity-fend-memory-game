@@ -1,5 +1,8 @@
 export default class Cards {
-  static cards = $.map($('.card'), card => $(card));
+  static cards() {
+    return $.map($('.card'), card => $(card));
+  }
+
   static hide(cards) {
     cards.map(card => card.hide());
   }
@@ -9,7 +12,7 @@ export default class Cards {
   }
   
   static showed() {
-    return this.cards.filter(card => card.isShowed());
+    return this.cards().filter(card => card.isShowed());
   }
   
   static opening() {
@@ -22,12 +25,12 @@ export default class Cards {
   }
   
   static disorder() {
-    const cards = this.cards.map(card => card.clone()).shuffle();
-    this.cards.map((card, i) => card.replace(cards[i]));
+    const cards = this.cards().map(card => card.clone()).shuffle();
+    this.cards().map((card, i) => card.replace(cards[i]));
   }
 
   static reset() {
-    this.hide(this.cards);
+    this.hide(this.cards());
     this.disorder();
   }
 }
