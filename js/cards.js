@@ -35,4 +35,8 @@ Array.prototype.showed = function () {
   return this.filter(card => card.showed());
 }
 
+Array.prototype.opening = function () {
+  return this.showed().filter(card => !card.matched());
+}
+
 export { cards };
