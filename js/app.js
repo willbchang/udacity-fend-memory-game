@@ -6,11 +6,15 @@ import Event from "./event.js";
 import Timer from "./timer.js";
 
 $(function () {
-  Cards.disorder();
-  Timer.reset();
-  Event.oneClick(startTimer);
-  Event.onClick(matchCards);
-  Event.onRestart(reset);
+  init();
+  
+  function init() {
+    Cards.disorder();
+    Timer.reset();
+    Event.oneClick(startTimer);
+    Event.onClick(matchCards);
+    Event.onRestart(reset);
+  }
 
   function startTimer() {
     Timer.start(Event.offClick);
