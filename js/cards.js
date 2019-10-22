@@ -3,6 +3,7 @@ export default class Cards {
     this.cards = $.map($('.card'), card => $(card));
   }
   hide(cards) {
+    cards = cards || this.cards;
     cards.map(card => card.hide());
   }
   disorder() {

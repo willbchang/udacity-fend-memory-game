@@ -24,7 +24,7 @@ $(function () {
   }
 
   function init() {
-    cards.hide(cards.cards);
+    cards.hide();
     cards.disorder();
     counter.reset();
     star.reset();
