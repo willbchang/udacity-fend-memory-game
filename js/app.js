@@ -12,7 +12,7 @@ $(function () {
 
   function handler() {
     // avoid click opened and matched card
-    if ($(this).hasClass('open')) return;
+    if ($(this).showed()) return;
 
     $(this).show();
     pairing.push($(this));

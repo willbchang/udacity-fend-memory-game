@@ -8,6 +8,9 @@ jQuery.fn.extend({
   pin: function () {
     this.addClass('match');
   },
+  showed: function () {
+    this.hasClass('open');
+  },
   match: function (card) {
     // The second [0] gets the DOM Element from jQuery Object
     return this[0].isEqualNode(card[0]);
