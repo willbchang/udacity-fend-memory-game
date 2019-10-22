@@ -7,7 +7,7 @@ import Star from "./star.js";
 
 $(function () {
   init();
-  
+
   function init() {
     Cards.disorder();
     Timer.reset();
@@ -24,6 +24,12 @@ $(function () {
     if (Cards.opening().length > 1) return;
     $(this).open();
     if (Cards.opening().length === 2) matching();
+    if (Cards.matched().length === 16) endGame();
+  }
+
+  function endGame() {
+    Timer.stop();
+    Event.offClick();
   }
 
   function matching() {

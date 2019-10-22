@@ -10,6 +10,10 @@ export default class Cards {
   static match() {
     this.opening().map(card => card.match());
   }
+
+  static matched() {
+    return this.cards().filter(card => card.isMatched());
+  }
   
   static showed() {
     return this.cards().filter(card => card.isShowed());
