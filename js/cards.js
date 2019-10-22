@@ -4,19 +4,24 @@ export default class Cards {
     cards = cards || this.cards;
     cards.map(card => card.hide());
   }
+  
   static match() {
     this.opening().map(card => card.match());
   }
+  
   static showed() {
     return this.cards.filter(card => card.isShowed());
   }
+  
   static opening() {
     return this.showed().filter(card => !card.isMatched());
   }
+  
   static matching() {
     this.opening()[0].matching(this.opening()[1]) ?
       this.match() : setTimeout(() => this.hide(this.opening()), 1500);
   }
+  
   static disorder() {
     const cards = this.cards.map(card => card.clone()).shuffle();
     this.cards.map((card, i) => card.replace(cards[i]));
