@@ -4,10 +4,6 @@ export default class Cards {
     cards = cards || this.cards;
     cards.map(card => card.hide());
   }
-  static disorder() {
-    const cards = this.cards.map(card => card.clone()).shuffle();
-    this.cards.map((card, i) => card.replace(cards[i]));
-  }
   static match() {
     this.opening().map(card => card.match());
   }
@@ -20,6 +16,10 @@ export default class Cards {
   static matching() {
     this.opening()[0].matching(this.opening()[1]) ?
       this.match() : setTimeout(() => this.hide(this.opening()), 1500);
+  }
+  static disorder() {
+    const cards = this.cards.map(card => card.clone()).shuffle();
+    this.cards.map((card, i) => card.replace(cards[i]));
   }
 }
 
