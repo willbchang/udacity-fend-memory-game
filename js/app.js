@@ -8,20 +8,20 @@ import Timer from "./timer.js";
 $(function () {
   init();
   Event.oneClick(startTimer);
-  Event.onClick(handler);
+  Event.onClick(matchCards);
   Event.onRestart(init);
 
   function startTimer() {
     Timer.start(Event.offClick);
   }
 
-  function handler() {
+  function matchCards() {
     if (Cards.opening().length > 1) return;
     $(this).open();
-    if (Cards.opening().length === 2) pair();
+    if (Cards.opening().length === 2) matching();
   }
 
-  function pair() {
+  function matching() {
     Cards.matching();
     Counter.increase();
     Star.rate(Counter.count());

@@ -1,6 +1,6 @@
 export default class Event {
-  static onClick(handler) {
-    $('.deck').on('click', 'li', handler);
+  static onClick(matchCards) {
+    $('.deck').on('click', 'li', matchCards);
   }
 
   static offClick() {
