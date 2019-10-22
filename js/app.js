@@ -6,7 +6,7 @@ import Event from "./event.js";
 import Timer from "./timer.js";
 
 $(function () {
-  init();
+  Cards.disorder();
   Event.oneClick(startTimer);
   Event.onClick(matchCards);
   Event.onRestart(init);
@@ -33,5 +33,7 @@ $(function () {
     Counter.reset();
     Star.reset();
     Timer.reset();
+    Event.oneClick(startTimer);
+    Event.onClick(matchCards);
   }
 });
