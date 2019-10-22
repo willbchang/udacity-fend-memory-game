@@ -3,12 +3,11 @@ export default class Timer {
   static start(offClick) {
     let aDuration = this.duration;
     setInterval(() => {
-      aDuration !== 0 ? this.reset(--aDuration) : (clearInterval(), offClick());
+      aDuration !== 0 ? this.update(--aDuration) : (clearInterval(), offClick());
     }, 1000);
   }
 
-  static reset(aDuration) {
-    aDuration = aDuration || this.duration;
+  static update(aDuration) {
     $('.timer').text(this.clock(aDuration));
   }
 
