@@ -9,7 +9,7 @@ $(function () {
   Cards.disorder();
   Event.oneClick(startTimer);
   Event.onClick(matchCards);
-  Event.onRestart(init);
+  Event.onRestart(reset);
 
   function startTimer() {
     Timer.start(Event.offClick);
@@ -27,7 +27,7 @@ $(function () {
     Star.rate(Counter.count());
   }
 
-  function init() {
+  function reset() {
     Cards.hide();
     Cards.disorder();
     Counter.reset();

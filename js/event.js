@@ -11,7 +11,7 @@ export default class Event {
     $('.deck').one('click', 'li', startTimer);
   }
 
-  static onRestart(init) {
-    $('.restart').click(init);
+  static onRestart(reset) {
+    $('.restart').click(reset);
   }
 }
