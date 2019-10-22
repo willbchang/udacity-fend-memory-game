@@ -26,6 +26,11 @@ export default class Cards {
     const cards = this.cards.map(card => card.clone()).shuffle();
     this.cards.map((card, i) => card.replace(cards[i]));
   }
+
+  static reset() {
+    this.hide();
+    this.disorder();
+  }
 }
 
 // Shuffle function from https://stackoverflow.com/a/6274381/9984029

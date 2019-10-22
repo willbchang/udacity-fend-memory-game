@@ -29,8 +29,7 @@ $(function () {
   }
 
   function reset() {
-    Cards.hide();
-    Cards.disorder();
+    Cards.reset();
     Counter.reset();
     Star.reset();
     Timer.reset();
