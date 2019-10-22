@@ -1,6 +1,27 @@
-// Gets
-function cards() {
-  return $.map($('.card'), card => $(card));
+export default class Cards {
+  constructor() {
+    this.cards = $.map($('.card'), card => $(card));
+  }
+  hide(aCards) {
+    aCards.map(card => card.hide());
+  }
+  disorder() {
+    const x = this.cards.map(card => card.clone()).shuffle();
+    this.cards.map((card, i) => card.replace(x[i]));
+  }
+  match() {
+    this.opening().map(card => card.match());
+  }
+  showed() {
+    return this.cards.filter(card => card.isShowed());
+  }
+  opening() {
+    return this.showed().filter(card => !card.isMatched());
+  }
+  matching() {
+    this.opening()[0].matching(this.opening()[1]) ?
+      this.match() : setTimeout(() => this.hide(this.opening()), 1500);
+  }
 }
 
 // Shuffle function from https://stackoverflow.com/a/6274381/9984029
@@ -12,32 +33,3 @@ Array.prototype.shuffle = function () {
 
   return this;
 };
-
-Array.prototype.disorder = function () {
-  // Deep copy and shuffle cards.
-  // https://api.jquery.com/clone/
-  const cards = this.map(card => card.clone()).shuffle();
-  this.map((card, i) => card.replace(cards[i]));
-}
-
-Array.prototype.hide = function () {
-  this.map(card => card.hide());
-}
-
-Array.prototype.match = function () {
-  this.map(card => card.match());
-}
-
-Array.prototype.matching = function () {
-  this[0].matching(this[1]) ? this.match() : setTimeout(() => this.hide(), 1500);
-}
-
-Array.prototype.showed = function () {
-  return this.filter(card => card.isShowed());
-}
-
-Array.prototype.opening = function () {
-  return this.showed().filter(card => !card.isMatched());
-}
-
-export { cards };
