@@ -1,3 +1,4 @@
+// Gets
 function cards() {
   return $.map($('.card'), card => $(card));
 }
@@ -13,7 +14,7 @@ Array.prototype.shuffle = function () {
 };
 
 Array.prototype.disorder = function () {
-  // Deep copy and shuffle cards
+  // Deep copy and shuffle cards.
   // https://api.jquery.com/clone/
   const cards = this.map(card => card.clone()).shuffle();
   this.map((card, i) => card.replace(cards[i]));

@@ -10,7 +10,6 @@ $(function () {
   event.onRestart(init);
 
   function handler() {
-    // avoid click opened and matched card
     if ($(this).isShowed()) return;
     if (cards().opening().length > 1) return;
     $(this).open();
