@@ -1,25 +1,23 @@
 export default class Cards {
-  constructor() {
-    this.cards = $.map($('.card'), card => $(card));
-  }
-  hide(cards) {
+  static cards = $.map($('.card'), card => $(card));
+  static hide(cards) {
     cards = cards || this.cards;
     cards.map(card => card.hide());
   }
-  disorder() {
+  static disorder() {
     const x = this.cards.map(card => card.clone()).shuffle();
     this.cards.map((card, i) => card.replace(x[i]));
   }
-  match() {
+  static match() {
     this.opening().map(card => card.match());
   }
-  showed() {
+  static showed() {
     return this.cards.filter(card => card.isShowed());
   }
-  opening() {
+  static opening() {
     return this.showed().filter(card => !card.isMatched());
   }
-  matching() {
+  static matching() {
     this.opening()[0].matching(this.opening()[1]) ?
       this.match() : setTimeout(() => this.hide(this.opening()), 1500);
   }
