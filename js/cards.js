@@ -5,8 +5,8 @@ export default class Cards {
     cards.map(card => card.hide());
   }
   static disorder() {
-    const x = this.cards.map(card => card.clone()).shuffle();
-    this.cards.map((card, i) => card.replace(x[i]));
+    const cards = this.cards.map(card => card.clone()).shuffle();
+    this.cards.map((card, i) => card.replace(cards[i]));
   }
   static match() {
     this.opening().map(card => card.match());
