@@ -9,7 +9,7 @@ jQuery.fn.extend({
     this.addClass('match');
   },
   isShowed: function () {
-    return this.hasClass('open');
+    return this.hasClass('show');
   },
   isMatched: function () {
     return this.hasClass('match')
