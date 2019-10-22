@@ -12,14 +12,12 @@ $(function () {
   function handler() {
     // avoid click opened and matched card
     if ($(this).showed()) return;
-
+    if (cards().opening().length > 1) return;
     $(this).show();
-    
-    if (cards().opening().length === 2) {
-      cards().opening().matching();
-      counter.increase();
-      star.rate(counter.count());
-    }
+    if (cards().opening().length !== 2) return;
+    cards().opening().matching();
+    counter.increase();
+    star.rate(counter.count());
   }
 
   function init() {
