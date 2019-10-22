@@ -10,7 +10,6 @@ $(function () {
   Event.onRestart(init);
 
   function handler() {
-    if ($(this).isShowed()) return;
     if (Cards.opening().length > 1) return;
     $(this).open();
     if (Cards.opening().length === 2) pair();
