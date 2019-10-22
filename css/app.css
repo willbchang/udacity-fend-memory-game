@@ -93,10 +93,10 @@ h1 {
 }
 
 .score-panel .stars {
+    width: 25%;
     margin: 0;
     padding: 0;
     display: inline-block;
-    margin: 0 5px 0 0;
 }
 
 .score-panel .stars li {
@@ -104,6 +104,12 @@ h1 {
     display: inline-block;
 }
 
+.score-panel .counter,
+.score-panel .timer {
+    width: 25%;
+}
+
 .score-panel .restart {
+    width: 25%;
     cursor: pointer;
 }
