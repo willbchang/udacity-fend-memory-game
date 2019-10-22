@@ -1,5 +1,5 @@
 jQuery.fn.extend({
-  show: function () {
+  open: function () {
     this.addClass('open show');
   },
   hide: function () {

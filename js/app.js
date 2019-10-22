@@ -13,7 +13,7 @@ $(function () {
     // avoid click opened and matched card
     if ($(this).isShowed()) return;
     if (cards().opening().length > 1) return;
-    $(this).show();
+    $(this).open();
     if (cards().opening().length === 2) pair();
   }
 
