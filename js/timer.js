@@ -8,7 +8,7 @@ export default class Timer {
   }
 
   static set(aDuration) {
-    let aDuration = aDuration || this.duration;
+    aDuration = aDuration || this.duration;
     $('.timer').text(this.clock(aDuration));
   }
 
