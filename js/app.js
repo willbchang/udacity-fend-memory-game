@@ -5,7 +5,6 @@ import * as counter from "./counter.js"
 import * as event from "./event.js";
 
 $(function () {
-  let pairing;
   init();
   event.onClick(handler);
   event.onRestart(init);
@@ -15,11 +14,9 @@ $(function () {
     if ($(this).showed()) return;
 
     $(this).show();
-    pairing.push($(this));
     
     if (cards().showed().length === 2) {
       cards().showed().match();
-      pairing = [];
       counter.increase();
       star.rate(counter.count());
     }
@@ -28,7 +25,6 @@ $(function () {
   function init() {
     cards().hide();
     cards().disorder();
-    pairing = [];
     counter.reset();
     star.reset();
   }
