@@ -32,11 +32,11 @@ Array.prototype.matching = function () {
 }
 
 Array.prototype.showed = function () {
-  return this.filter(card => card.showed());
+  return this.filter(card => card.isShowed());
 }
 
 Array.prototype.opening = function () {
-  return this.showed().filter(card => !card.matched());
+  return this.showed().filter(card => !card.isMatched());
 }
 
 export { cards };

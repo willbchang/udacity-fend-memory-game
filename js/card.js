@@ -8,10 +8,10 @@ jQuery.fn.extend({
   pin: function () {
     this.addClass('match');
   },
-  showed: function () {
+  isShowed: function () {
     return this.hasClass('open');
   },
-  matched: function () {
+  isMatched: function () {
     return this.hasClass('match')
   },
   matching: function (card) {
