@@ -3,11 +3,17 @@ import Cards from "./cards.js"
 import Star from "./star.js";
 import Counter from "./counter.js"
 import Event from "./event.js";
+import Timer from "./timer.js";
 
 $(function () {
   init();
+  Event.oneClick(ticktock);
   Event.onClick(handler);
   Event.onRestart(init);
+
+  function ticktock() {
+    Timer.ticktock(Event.offClick);
+  }
 
   function handler() {
     if (Cards.opening().length > 1) return;
@@ -26,5 +32,6 @@ $(function () {
     Cards.disorder();
     Counter.reset();
     Star.reset();
+    Timer.reset();
   }
 });
