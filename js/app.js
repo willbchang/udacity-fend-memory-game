@@ -1,9 +1,9 @@
 import "./card.js"
 import Cards from "./cards.js"
-import Star from "./star.js";
 import Counter from "./counter.js"
 import Event from "./event.js";
 import Timer from "./timer.js";
+import Star from "./star.js";
 
 $(function () {
   init();
