@@ -2,12 +2,12 @@ import "./card.js"
 import Cards from "./cards.js"
 import Star from "./star.js";
 import Counter from "./counter.js"
-import * as event from "./event.js";
+import Event from "./event.js";
 
 $(function () {
   init();
-  event.onClick(handler);
-  event.onRestart(init);
+  Event.onClick(handler);
+  Event.onRestart(init);
 
   function handler() {
     if ($(this).isShowed()) return;
