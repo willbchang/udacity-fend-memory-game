@@ -11,6 +11,9 @@ jQuery.fn.extend({
   showed: function () {
     return this.hasClass('open');
   },
+  matched: function () {
+    return this.hasClass('match')
+  },
   matching: function (card) {
     // The second [0] gets the DOM Element from jQuery Object
     return this[0].isEqualNode(card[0]);
