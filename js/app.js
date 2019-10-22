@@ -1,6 +1,6 @@
 import "./card.js"
 import Cards from "./cards.js"
-import * as star from "./star.js";
+import Star from "./star.js";
 import Counter from "./counter.js"
 import * as event from "./event.js";
 
@@ -19,13 +19,13 @@ $(function () {
   function pair() {
     Cards.matching();
     Counter.increase();
-    star.rate(Counter.count());
+    Star.rate(Counter.count());
   }
 
   function init() {
     Cards.hide();
     Cards.disorder();
     Counter.reset();
-    star.reset();
+    Star.reset();
   }
 });

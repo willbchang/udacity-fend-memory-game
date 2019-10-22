@@ -1,13 +1,14 @@
-function rate(count) {
-  count <= 12 ? remain(3) : count <= 16 ? remain(2) : remain(1)
-}
+export default class Star {
+  static rate(count) {
+    count <= 12 ? this.remain(3) :
+      count <= 16 ? this.remain(2) : this.remain(1)
+  }
 
-function remain(nth) {
-  $('.fa-star').eq(nth).removeClass('fa').addClass('far')
-}
+  static remain(nth) {
+    $('.fa-star').eq(nth).removeClass('fa').addClass('far')
+  }
 
-function reset() {
-  $('.fa-star').removeClass('far').addClass('fa')
+  static reset() {
+    $('.fa-star').removeClass('far').addClass('fa')
+  }
 }
-
-export { rate, reset };
