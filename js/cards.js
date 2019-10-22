@@ -23,12 +23,12 @@ Array.prototype.hide = function () {
   this.map(card => card.hide());
 }
 
-Array.prototype.pin = function () {
-  this.map(card => card.pin());
+Array.prototype.match = function () {
+  this.map(card => card.match());
 }
 
 Array.prototype.matching = function () {
-  this[0].matching(this[1]) ? this.pin() : setTimeout(() => this.hide(), 1500);
+  this[0].matching(this[1]) ? this.match() : setTimeout(() => this.hide(), 1500);
 }
 
 Array.prototype.showed = function () {
