@@ -1,6 +1,6 @@
 export default class Timer {
   static duration = 100;
-  static ticktock(offClick) {
+  static start(offClick) {
     let aDuration = this.duration;
     setInterval(() => {
       aDuration !== 0 ? this.reset(--aDuration) : (clearInterval(), offClick());

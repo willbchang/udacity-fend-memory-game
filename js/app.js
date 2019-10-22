@@ -7,12 +7,12 @@ import Timer from "./timer.js";
 
 $(function () {
   init();
-  Event.oneClick(ticktock);
+  Event.oneClick(startTimer);
   Event.onClick(handler);
   Event.onRestart(init);
 
-  function ticktock() {
-    Timer.ticktock(Event.offClick);
+  function startTimer() {
+    Timer.start(Event.offClick);
   }
 
   function handler() {

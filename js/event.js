@@ -7,8 +7,8 @@ export default class Event {
     $('.deck').off('click', 'li');
   }
 
-  static oneClick(ticktock) {
-    $('.deck').one('click', 'li', ticktock);
+  static oneClick(startTimer) {
+    $('.deck').one('click', 'li', startTimer);
   }
 
   static onRestart(init) {
