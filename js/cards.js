@@ -27,8 +27,8 @@ Array.prototype.pin = function () {
   this.map(card => card.pin());
 }
 
-Array.prototype.match = function () {
-  this[0].match(this[1]) ? this.pin() : setTimeout(() => this.hide(), 1500);
+Array.prototype.matching = function () {
+  this[0].matching(this[1]) ? this.pin() : setTimeout(() => this.hide(), 1500);
 }
 
 Array.prototype.showed = function () {

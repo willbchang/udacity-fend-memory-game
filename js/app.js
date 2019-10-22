@@ -16,7 +16,7 @@ $(function () {
     $(this).show();
     
     if (cards().showed().length === 2) {
-      cards().showed().match();
+      cards().showed().matching();
       counter.increase();
       star.rate(counter.count());
     }
