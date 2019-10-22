@@ -9,7 +9,7 @@ jQuery.fn.extend({
     this.addClass('match');
   },
   showed: function () {
-    this.hasClass('open');
+    return this.hasClass('open');
   },
   match: function (card) {
     // The second [0] gets the DOM Element from jQuery Object

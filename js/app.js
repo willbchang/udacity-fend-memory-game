@@ -16,9 +16,9 @@ $(function () {
 
     $(this).show();
     pairing.push($(this));
-
-    if (pairing.length === 2) {
-      pairing.match();
+    
+    if (cards().showed().length === 2) {
+      cards().showed().match();
       pairing = [];
       counter.increase();
       star.rate(counter.count());
