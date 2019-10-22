@@ -1,7 +1,6 @@
 export default class Cards {
   static cards = $.map($('.card'), card => $(card));
   static hide(cards) {
-    cards = cards || this.cards;
     cards.map(card => card.hide());
   }
   
@@ -28,7 +27,7 @@ export default class Cards {
   }
 
   static reset() {
-    this.hide();
+    this.hide(this.cards);
     this.disorder();
   }
 }
