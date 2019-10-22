@@ -1,14 +1,20 @@
 export default class Timer {
   static duration = 100;
+  static ticktock;
   static start(offClick) {
     let aDuration = this.duration;
-    setInterval(() => {
+    this.ticktock = setInterval(() => {
       aDuration !== 0 ? this.update(--aDuration) : (clearInterval(), offClick());
     }, 1000);
   }
 
   static update(aDuration) {
     $('.timer').text(this.clock(aDuration));
+  }
+
+  static reset() {
+    clearInterval(this.ticktock);
+    this.update(this.duration);
   }
 
   // https://stackoverflow.com/a/847196/9984029
