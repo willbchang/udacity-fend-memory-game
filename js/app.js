@@ -21,9 +21,9 @@ $(function () {
   }
 
   function matchCards() {
-    if (Cards.opening().length > 1) return;
+    if (Cards.opened().length > 1) return;
     $(this).open();
-    if (Cards.opening().length === 2) matching();
+    if (Cards.opened().length === 2) matching();
     if (Cards.matched().length === 16) endGame();
   }
 

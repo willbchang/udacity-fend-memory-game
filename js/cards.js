@@ -22,7 +22,7 @@ export default class Cards {
   }
   
   // Get opened cards -- opened but not matched.
-  static opening() {
+  static opened() {
     return this.showed().filter(card => !card.isMatched());
   }
   
@@ -32,7 +32,7 @@ export default class Cards {
   
   // Check if two cards is matched, then match or hide them. 
   static matching() {
-    const openedCards = this.opening();
+    const openedCards = this.opened();
     this.isPaired(openedCards) ? this.match(openedCards)
       : setTimeout(() => this.hide(openedCards), 1500);
   }
