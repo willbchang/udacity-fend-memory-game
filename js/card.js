@@ -10,7 +10,7 @@ jQuery.fn.extend({
   match: function () {
     this.addClass('match');
   },
-  isShowed: function () {
+  showed: function () {
     return this.hasClass('show');
   },
   matched: function () {

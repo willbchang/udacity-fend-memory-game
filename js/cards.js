@@ -18,7 +18,7 @@ export default class Cards {
   
   // Get showed cards -- opened or matched.
   static showed() {
-    return this.cards.filter(card => card.isShowed());
+    return this.cards.filter(card => card.showed());
   }
   
   // Get opened cards -- opened but not matched.
