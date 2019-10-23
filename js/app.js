@@ -1,31 +1,30 @@
 import "./card.js"
-import { cards } from "./cards.js"
-import * as star from "./star.js";
-import * as counter from "./counter.js"
-import * as event from "./event.js";
+import Cards from "./cards.js"
+import Star from "./star.js";
+import Counter from "./counter.js"
+import Event from "./event.js";
 
 $(function () {
   init();
-  event.onClick(handler);
-  event.onRestart(init);
+  Event.onClick(handler);
+  Event.onRestart(init);
 
   function handler() {
-    if ($(this).isShowed()) return;
-    if (cards().opening().length > 1) return;
+    if (Cards.opening().length > 1) return;
     $(this).open();
-    if (cards().opening().length === 2) pair();
+    if (Cards.opening().length === 2) pair();
   }
 
   function pair() {
-    cards().opening().matching();
-    counter.increase();
-    star.rate(counter.count());
+    Cards.matching();
+    Counter.increase();
+    Star.rate(Counter.count());
   }
 
   function init() {
-    cards().hide();
-    cards().disorder();
-    counter.reset();
-    star.reset();
+    Cards.hide();
+    Cards.disorder();
+    Counter.reset();
+    Star.reset();
   }
 });
