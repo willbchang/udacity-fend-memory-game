@@ -1,3 +1,5 @@
+// Extend jQuery object for dot access.
+// https://api.jquery.com/jQuery.fn.extend
 jQuery.fn.extend({
   open: function () {
     this.addClass('open show');
@@ -18,6 +20,7 @@ jQuery.fn.extend({
     // [0] gets the DOM element from a jQuery object.
     return this[0].isEqualNode(card[0]);
   },
+  // Replace card's icon
   replace: function (card) {
     this.find('i').replaceWith(card.find('i'));
   }

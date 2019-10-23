@@ -1,30 +1,39 @@
+// For single card's dot functions please check card.js
 export default class Cards {
   static cards = $.map($('.card'), card => $(card));
+  // Change cards status to hide.
   static hide(cards) {
     cards.map(card => card.hide());
   }
   
+  // Change cards status to match.
   static match() {
     this.opening().map(card => card.match());
   }
 
+  // Get matched cards.
   static matched() {
     return this.cards.filter(card => card.isMatched());
   }
   
+  // Get showed cards -- opened or matched.
   static showed() {
     return this.cards.filter(card => card.isShowed());
   }
   
+  // Get opened cards -- opened but not matched.
   static opening() {
     return this.showed().filter(card => !card.isMatched());
   }
   
+  // Check if two cards is matched, then match or hide them. 
   static matching() {
     this.opening()[0].matching(this.opening()[1]) ?
       this.match() : setTimeout(() => this.hide(this.opening()), 1500);
   }
   
+  // Shuffle cards with deep copy because this.cards is immutable.
+  // https://api.jquery.com/clone/
   static disorder() {
     let clonedCards = this.cards.map(card => card.clone());
     const shuffledCards = this.shuffle(clonedCards);
