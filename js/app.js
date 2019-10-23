@@ -27,15 +27,15 @@ $(function () {
     if (Cards.matched().length === 16) endGame();
   }
 
-  function endGame() {
-    Timer.stop();
-    Event.offClick();
-  }
-
   function matching() {
     Cards.matching();
     Counter.increase();
     Star.rate(Counter.count());
+  }
+
+  function endGame() {
+    Timer.stop();
+    Event.offClick();
   }
 
   function reset() {
