@@ -2,12 +2,12 @@ export default class Timer {
   static interval
   // Update timer per second.
   static start() {
-    let aDuration = 0
-    this.interval = setInterval(() => this.update(++aDuration), 1000)
+    let duration = 0
+    this.interval = setInterval(() => this.update(++duration), 1000)
   }
 
-  static update(aDuration) {
-    $('.timer').text(this.clock(aDuration))
+  static update(duration) {
+    $('.timer').text(this.clock(duration))
   }
 
   static now() {
@@ -26,8 +26,8 @@ export default class Timer {
 
   // Convert Number to clock format.
   // https://stackoverflow.com/a/847196/9984029
-  static clock(aDuration) {
-    const date = new Date(aDuration * 1000)
+  static clock(duration) {
+    const date = new Date(duration * 1000)
     const minutes = "0" + date.getMinutes()
     const seconds = "0" + date.getSeconds()
     return minutes.substr(-2) + ' : ' + seconds.substr(-2)
