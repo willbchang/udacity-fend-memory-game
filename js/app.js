@@ -17,7 +17,7 @@ $(function () {
   }
 
   function ticktock() {
-    Timer.ticktock(endGame);
+    Timer.ticktock();
   }
 
   function matchCards() {

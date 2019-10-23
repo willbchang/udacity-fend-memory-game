@@ -1,13 +1,10 @@
 export default class Timer {
-  static duration = 100;
   static interval;
 
-  // Update timer per second, end game when time's up.
-  static ticktock(endGame) {
-    let aDuration = this.duration;
-    this.interval = setInterval(() => {
-      aDuration !== 0 ? this.update(--aDuration) : endGame();
-    }, 1000);
+  // Update timer per second.
+  static ticktock() {
+    let aDuration = 0;
+    this.interval = setInterval(() => this.update(++aDuration), 1000);
   }
 
   static update(aDuration) {
@@ -20,7 +17,7 @@ export default class Timer {
 
   static reset() {
     this.stop();
-    this.update(this.duration);
+    this.update(0);
   }
 
   // Convert Number to clock format.
