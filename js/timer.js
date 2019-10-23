@@ -1,6 +1,5 @@
 export default class Timer {
   static interval
-  // Update timer per second.
   static start() {
     let duration = 0
     this.interval = setInterval(() => this.update(++duration), 1000)
@@ -22,7 +21,6 @@ export default class Timer {
     this.stop()
     this.update(0)
   }
-
 
   // Convert Number to clock format.
   // https://stackoverflow.com/a/847196/9984029

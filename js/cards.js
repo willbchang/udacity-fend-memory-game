@@ -51,6 +51,7 @@ export default class Cards {
   }
 
   // https://stackoverflow.com/a/6274381/9984029
+  // https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
   static shuffle = function (cards) {
     for (let i = cards.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
