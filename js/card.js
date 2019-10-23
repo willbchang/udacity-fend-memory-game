@@ -19,7 +19,6 @@ jQuery.fn.extend({
     return this[0].isEqualNode(card[0]);
   },
   replace: function (card) {
-    this.find('i').removeClass(this.find('i').attr('class'));
-    this.find('i').addClass(card.find('i').attr('class'));
+    this.find('i').replaceWith(card.find('i'));
   }
 });
