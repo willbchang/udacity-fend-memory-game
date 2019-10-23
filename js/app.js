@@ -11,13 +11,13 @@ $(function () {
   function init() {
     Cards.disorder();
     Timer.reset();
-    Event.oneClick(startTimer);
+    Event.oneClick(ticktock);
     Event.onClick(matchCards);
     Event.onRestart(reset);
   }
 
-  function startTimer() {
-    Timer.start(endGame);
+  function ticktock() {
+    Timer.ticktock(endGame);
   }
 
   function matchCards() {
@@ -43,7 +43,7 @@ $(function () {
     Counter.reset();
     Star.reset();
     Timer.reset();
-    Event.oneClick(startTimer);
+    Event.oneClick(ticktock);
     Event.onClick(matchCards);
   }
 });

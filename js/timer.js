@@ -1,7 +1,7 @@
 export default class Timer {
   static duration = 100;
   static interval;
-  static start(endGame) {
+  static ticktock(endGame) {
     let aDuration = this.duration;
     this.interval = setInterval(() => {
       aDuration !== 0 ? this.update(--aDuration) : endGame();
