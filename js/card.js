@@ -16,7 +16,7 @@ jQuery.fn.extend({
   matched: function () {
     return this.hasClass('match')
   },
-  isPaired: function (card) {
+  isMatched: function (card) {
     // [0] gets the DOM element from a jQuery object.
     return this[0].isEqualNode(card[0]);
   },

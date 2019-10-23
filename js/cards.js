@@ -26,14 +26,14 @@ export default class Cards {
     return this.showed().filter(card => !card.matched());
   }
   
-  static isPaired(cards) {
-    return cards[0].isPaired(cards[1]);
+  static isMatched(cards) {
+    return cards[0].isMatched(cards[1]);
   }
   
   // Check if two cards is matched, then match or hide them. 
   static matching() {
     const openedCards = this.opened();
-    this.isPaired(openedCards) ? this.match(openedCards)
+    this.isMatched(openedCards) ? this.match(openedCards)
       : setTimeout(() => this.hide(openedCards), 1500);
   }
   
