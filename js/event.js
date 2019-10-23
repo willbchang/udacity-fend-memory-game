@@ -1,17 +1,17 @@
 export default class Event {
   static onClick(matchCards) {
-    $('.deck').on('click', 'li', matchCards);
+    $('.deck').on('click', 'li', matchCards)
   }
 
   static offClick() {
-    $('.deck').off('click', 'li');
+    $('.deck').off('click', 'li')
   }
 
   static oneClick(startTimer) {
-    $('.deck').one('click', 'li', startTimer);
+    $('.deck').one('click', 'li', startTimer)
   }
 
   static onRestart(reset) {
-    $('.restart').click(reset);
+    $('.restart').click(reset)
   }
 }
