@@ -2,7 +2,7 @@ export default class Timer {
   static interval;
 
   // Update timer per second.
-  static ticktock() {
+  static start() {
     let aDuration = 0;
     this.interval = setInterval(() => this.update(++aDuration), 1000);
   }

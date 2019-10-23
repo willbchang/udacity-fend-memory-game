@@ -6,28 +6,28 @@ import Timer from "./timer.js";
 import Star from "./star.js";
 
 $(function () {
-  init();
+  initGame();
 
-  function init() {
+  function initGame() {
     Cards.disorder();
     Timer.reset();
-    Event.oneClick(ticktock);
+    Event.oneClick(startTimer);
     Event.onClick(matchCards);
-    Event.onRestart(reset);
+    Event.onRestart(restartGame);
   }
 
-  function ticktock() {
-    Timer.ticktock();
+  function startTimer() {
+    Timer.start();
   }
 
   function matchCards() {
     if (Cards.opened().length > 1) return;
     $(this).open();
-    if (Cards.opened().length === 2) matching();
+    if (Cards.opened().length === 2) updateGame();
     if (Cards.matched().length === 16) endGame();
   }
 
-  function matching() {
+  function updateGame() {
     Cards.matching();
     Counter.increase();
     Star.rate(Counter.count());
@@ -38,12 +38,12 @@ $(function () {
     Event.offClick();
   }
 
-  function reset() {
+  function restartGame() {
     Cards.reset();
     Counter.reset();
     Star.reset();
     Timer.reset();
-    Event.oneClick(ticktock);
+    Event.oneClick(startTimer);
     Event.onClick(matchCards);
   }
 });
