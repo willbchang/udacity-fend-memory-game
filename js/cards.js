@@ -27,7 +27,7 @@ export default class Cards {
   
   static disorder() {
     let clonedCards = this.cards.map(card => card.clone());
-    const shuffledCards = clonedCards.shuffle();
+    const shuffledCards = this.shuffle(clonedCards);
     this.cards.map((card, i) => card.replace(shuffledCards[i]));
   }
 
@@ -35,14 +35,13 @@ export default class Cards {
     this.hide(this.cards);
     this.disorder();
   }
-}
 
-// Shuffle function from https://stackoverflow.com/a/6274381/9984029
-Array.prototype.shuffle = function () {
-  for (let i = this.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [this[i], this[j]] = [this[j], this[i]];
+  // https://stackoverflow.com/a/6274381/9984029
+  static shuffle = function (cards) {
+    for (let i = cards.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [cards[i], cards[j]] = [cards[j], cards[i]];
+    }
+    return cards;
   }
-
-  return this;
-};
+}
