@@ -1,34 +1,61 @@
+// For single card's dot functions please check card.js
 export default class Cards {
   static cards = $.map($('.card'), card => $(card));
+  // Change cards status to hide.
   static hide(cards) {
-    cards = cards || this.cards;
     cards.map(card => card.hide());
   }
-  static match() {
-    this.opening().map(card => card.match());
+  
+  // Change cards status to match.
+  static match(cards) {
+    cards.map(card => card.match());
   }
+
+  // Get matched cards.
+  static matched() {
+    return this.cards.filter(card => card.matched());
+  }
+  
+  // Get showed cards -- opened or matched.
   static showed() {
-    return this.cards.filter(card => card.isShowed());
+    return this.cards.filter(card => card.showed());
   }
-  static opening() {
-    return this.showed().filter(card => !card.isMatched());
+  
+  // Get opened cards -- opened but not matched.
+  static opened() {
+    return this.showed().filter(card => !card.matched());
   }
+  
+  static isMatched(cards) {
+    return cards[0].isMatched(cards[1]);
+  }
+  
+  // Check if two cards is matched, then match or hide them. 
   static matching() {
-    this.opening()[0].matching(this.opening()[1]) ?
-      this.match() : setTimeout(() => this.hide(this.opening()), 1500);
+    const openedCards = this.opened();
+    this.isMatched(openedCards) ? this.match(openedCards)
+      : setTimeout(() => this.hide(openedCards), 1500);
   }
+  
+  // Shuffle cards with deep copy because this.cards is immutable.
+  // https://api.jquery.com/clone/
   static disorder() {
-    const cards = this.cards.map(card => card.clone()).shuffle();
-    this.cards.map((card, i) => card.replace(cards[i]));
+    let clonedCards = this.cards.map(card => card.clone());
+    const shuffledCards = this.shuffle(clonedCards);
+    this.cards.map((card, i) => card.replace(shuffledCards[i]));
+  }
+
+  static reset() {
+    this.hide(this.cards);
+    this.disorder();
+  }
+
+  // https://stackoverflow.com/a/6274381/9984029
+  static shuffle = function (cards) {
+    for (let i = cards.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [cards[i], cards[j]] = [cards[j], cards[i]];
+    }
+    return cards;
   }
 }
-
-// Shuffle function from https://stackoverflow.com/a/6274381/9984029
-Array.prototype.shuffle = function () {
-  for (let i = this.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [this[i], this[j]] = [this[j], this[i]];
-  }
-
-  return this;
-};
