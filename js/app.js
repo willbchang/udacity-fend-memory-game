@@ -17,7 +17,7 @@ $(function () {
   }
 
   function startTimer() {
-    Timer.start(Event.offClick);
+    Timer.start(endGame);
   }
 
   function matchCards() {
