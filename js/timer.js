@@ -27,9 +27,9 @@ export default class Timer {
   // Convert Number to clock format.
   // https://stackoverflow.com/a/847196/9984029
   static clock(aDuration) {
-    var date = new Date(aDuration * 1000)
-    var minutes = "0" + date.getMinutes()
-    var seconds = "0" + date.getSeconds()
+    const date = new Date(aDuration * 1000)
+    const minutes = "0" + date.getMinutes()
+    const seconds = "0" + date.getSeconds()
     return minutes.substr(-2) + ' : ' + seconds.substr(-2)
   }
 }
