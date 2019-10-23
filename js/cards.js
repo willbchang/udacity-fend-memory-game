@@ -5,7 +5,7 @@ export default class Cards {
   static hide(cards) {
     cards.map(card => card.hide());
   }
-  
+
   // Change cards status to match.
   static match(cards) {
     cards.map(card => card.match());
@@ -15,28 +15,28 @@ export default class Cards {
   static matched() {
     return this.cards.filter(card => card.matched());
   }
-  
+
   // Get showed cards -- opened or matched.
   static showed() {
     return this.cards.filter(card => card.showed());
   }
-  
+
   // Get opened cards -- opened but not matched.
   static opened() {
     return this.showed().filter(card => !card.matched());
   }
-  
+
   static isMatched(cards) {
     return cards[0].isMatched(cards[1]);
   }
-  
+
   // Check if two cards is matched, then match or hide them. 
   static matching() {
     const openedCards = this.opened();
     this.isMatched(openedCards) ? this.match(openedCards)
       : setTimeout(() => this.hide(openedCards), 1500);
   }
-  
+
   // Shuffle cards with deep copy because this.cards is immutable.
   // https://api.jquery.com/clone/
   static disorder() {
