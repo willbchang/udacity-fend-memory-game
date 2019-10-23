@@ -13,7 +13,7 @@ jQuery.fn.extend({
   isShowed: function () {
     return this.hasClass('show');
   },
-  isMatched: function () {
+  matched: function () {
     return this.hasClass('match')
   },
   isPaired: function (card) {

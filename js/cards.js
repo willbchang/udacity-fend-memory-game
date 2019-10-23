@@ -13,7 +13,7 @@ export default class Cards {
 
   // Get matched cards.
   static matched() {
-    return this.cards.filter(card => card.isMatched());
+    return this.cards.filter(card => card.matched());
   }
   
   // Get showed cards -- opened or matched.
@@ -23,7 +23,7 @@ export default class Cards {
   
   // Get opened cards -- opened but not matched.
   static opened() {
-    return this.showed().filter(card => !card.isMatched());
+    return this.showed().filter(card => !card.matched());
   }
   
   static isPaired(cards) {
