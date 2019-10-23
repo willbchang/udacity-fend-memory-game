@@ -36,6 +36,17 @@ $(function () {
   function endGame() {
     Timer.stop();
     Event.offClick();
+    summaryGame();
+  }
+
+  function summaryGame() {
+    const message = `  You used ${Timer.now()},\
+    had ${Counter.count()} moves,\
+    got ${Star.count()} star(s).\n
+    Would you like to restart the game?`
+    setTimeout(() => {
+      if (confirm(message)) reset();
+    }, 2000);
   }
 
   function restartGame() {
