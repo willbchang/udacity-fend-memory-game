@@ -7,8 +7,8 @@ export default class Cards {
   }
   
   // Change cards status to match.
-  static match() {
-    this.opening().map(card => card.match());
+  static match(cards) {
+    cards.map(card => card.match());
   }
 
   // Get matched cards.
@@ -29,7 +29,7 @@ export default class Cards {
   // Check if two cards is matched, then match or hide them. 
   static matching() {
     this.opening()[0].matching(this.opening()[1]) ?
-      this.match() : setTimeout(() => this.hide(this.opening()), 1500);
+      this.match(this.opening()) : setTimeout(() => this.hide(this.opening()), 1500);
   }
   
   // Shuffle cards with deep copy because this.cards is immutable.
