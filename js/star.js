@@ -11,4 +11,8 @@ export default class Star {
   static reset() {
     $('.fa-star').removeClass('far').addClass('fa')
   }
+
+  static count() {
+    return $('.fa.fa-star').length
+  }
 }
