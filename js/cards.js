@@ -26,7 +26,8 @@ export default class Cards {
   }
   
   static disorder() {
-    const shuffledCards = this.cards.map(card => card.clone()).shuffle();
+    let clonedCards = this.cards.map(card => card.clone());
+    const shuffledCards = clonedCards.shuffle();
     this.cards.map((card, i) => card.replace(shuffledCards[i]));
   }
 
