@@ -45,7 +45,7 @@ $(function () {
     got ${Star.count()} star(s).\n
     Would you like to restart the game?`
     setTimeout(() => {
-      if (confirm(message)) reset()
+      if (confirm(message)) restartGame()
     }, 2000)
   }
 
