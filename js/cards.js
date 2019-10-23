@@ -28,8 +28,9 @@ export default class Cards {
   
   // Check if two cards is matched, then match or hide them. 
   static matching() {
-    this.opening()[0].matching(this.opening()[1]) ?
-      this.match(this.opening()) : setTimeout(() => this.hide(this.opening()), 1500);
+    const openedCards = this.opening();
+    openedCards[0].matching(openedCards[1]) ?
+      this.match(openedCards) : setTimeout(() => this.hide(openedCards), 1500);
   }
   
   // Shuffle cards with deep copy because this.cards is immutable.
