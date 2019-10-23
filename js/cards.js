@@ -33,7 +33,7 @@ export default class Cards {
   // Check if two cards is matched, then match or hide them. 
   static matching() {
     const openedCards = this.opening();
-    openedCards[0].isPaired(openedCards[1]) ?
+    this.isPaired(openedCards) ?
       this.match(openedCards) : setTimeout(() => this.hide(openedCards), 1500);
   }
   
