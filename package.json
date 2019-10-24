@@ -1,0 +1,26 @@
+{
+  "name": "udacity-fend-memory-game",
+  "version": "1.0.0",
+  "description": "udacity fend nanodegree project",
+  "main": "app.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jquery": "^3.3.31"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willbchang/udacity-fend-memory-game.git"
+  },
+  "keywords": [
+    "udacity"
+  ],
+  "author": "Will B Chang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/willbchang/udacity-fend-memory-game/issues"
+  },
+  "homepage": "https://github.com/willbchang/udacity-fend-memory-game#readme"
+}
