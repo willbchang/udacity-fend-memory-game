@@ -37,11 +37,9 @@ export default class Cards {
       : setTimeout(() => this.hide(openedCards), 1500)
   }
 
-  // Shuffle cards with deep copy because this.cards is immutable.
-  // https://api.jquery.com/clone/
+  // Shuffle cards after turning NodeList to Array
   static disorder() {
-    let clonedCards = this.cards.map(card => card.clone())
-    const shuffledCards = this.shuffle(clonedCards)
+    const shuffledCards = this.shuffle([...this.cards])
     this.cards.map((card, i) => card.replace(shuffledCards[i]))
   }
 
