@@ -1,7 +1,9 @@
 # Memory Game Project
-Play here: http://code.willbc.cn/udacity-fend-memory-game/
+Play it: http://code.willbc.cn/udacity-fend-memory-game/
+You can also download/clone it to run locally
 
 ## Dependencies
+(They are for code hints in editor/IDE, not required.)
 `npm install`
 
 or
@@ -9,10 +11,10 @@ or
 `npm install --save-dev @types/jquery`
 
 ## Instructions
-Click any of the hidden cards, it will showed temporarily until you click the second cards. Then these two will start matching. Unmatched cards will hidden, matched cards will showed permanently untile the end of the game.
+Click any of the hidden cards, it will stay open temporarily until you click the second cards. Then these two will start matching. Unmatched cards will be hidden, matched cards will stay open permanently until reset/restart the game.
 
 ## Contributing
-This repository is the a project of Udacity Front-end Nanodegree. I only accpet the pull requests after graduation.
+This repository is a project of Udacity Front-end Nanodegree. Feel free!
 
 ## LICENSE
 MIT
